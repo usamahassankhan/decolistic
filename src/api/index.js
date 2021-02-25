@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000' });
+const API = axios.create({ baseURL: 'http://192.168.15.27:5000' });
 // API.interceptors.request.use((req) => {
 //     if (localStorage.getItem('profile')) {
 //         req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
@@ -13,6 +13,12 @@ export const updateMainHeading = (id, updatedMainHeading) =>
     API.patch(`/mainheading/${id}`, updatedMainHeading);
 export const deleteMainHeading = (id) => API.delete(`/mainheading/${id}`);
 
+//subheading
+export const fetchSubHeading = () => API.get('/subheading/getall');
+export const createSubHeading = (newSubHeading) => API.post('/subheading', newSubHeading);
+export const updateSubHeading = (id, updatedSubHeading) =>
+    API.patch(`/subheading/${id}`, updatedSubHeading);
+export const deleteSubHeading = (id) => API.delete(`/subheading/${id}`);
 // export const likePost = (id) => API.patch(`posts/${id}/likePost`);
 
 export const signIn = (formData) => API.post('/user/signin', formData);

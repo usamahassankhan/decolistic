@@ -1,16 +1,16 @@
-export default (mainHeading = [], action) => {
+export default (subHeading = [], action) => {
     switch (action.type) {
         case 'FETCH_ALL':
             return action.payload;
         case 'CREATE':
-            return [...mainHeading, action.payload];
+            return [...subHeading, action.payload];
         case 'DELETE':
-            return mainHeading.filter((mainH) => mainH._id !== action.payload);
+            return subHeading.filter((mainH) => mainH._id !== action.payload);
         case 'UPDATE':
-            return mainHeading.map((mainH) =>
+            return subHeading.map((mainH) =>
                 mainH._id === action.payload._id ? action.payload : mainH
             );
         default:
-            return mainHeading;
+            return subHeading;
     }
 };

@@ -3,7 +3,9 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import SLUGS from 'resources/slugs';
 import LoadingComponent from 'components/loading';
 import CreateMainHeading from 'Pages/maincategory/CreateMainCategory';
-import ViewMainCategory from 'Pages/maincategory/ViewMainCategory';
+import CreateSubMainCategory from 'Pages/maincategory/CreateSubMainCategory';
+import CreateSubSubMainCategory from 'Pages/maincategory/CreateSubSubMainCategory';
+import ViewMainCategory from 'Pages/maincategory/CreateSubSubMainCategory';
 const DashboardComponent = lazy(() => import('./dashboard'));
 
 function PrivateRoutes() {
@@ -12,7 +14,12 @@ function PrivateRoutes() {
             <Switch>
                 <Route exact path={SLUGS.dashboard} component={DashboardComponent} />
                 <Route exact path={SLUGS.mainCategory} component={CreateMainHeading} />
-                <Route exact path={SLUGS.viewMainCategory} component={ViewMainCategory} />
+                <Route exact path={SLUGS.CreateSubMainCategory} component={CreateSubMainCategory} />
+                <Route
+                    exact
+                    path={SLUGS.CreateSubSubMainCategory}
+                    component={CreateSubSubMainCategory}
+                />
                 <Route exact path={SLUGS.overview} render={() => <div>overview</div>} />
                 <Route exact path={SLUGS.tickets} render={() => <div>tickets</div>} />
                 <Route exact path={SLUGS.ideasTwo} render={() => <div>ideasTwo</div>} />
