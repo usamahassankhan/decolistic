@@ -14,12 +14,13 @@ export const getMainHeading = () => async (dispatch) => {
 export const createMainHeading = (mainHeading) => async (dispatch) => {
     try {
         const { data } = await api.createMainHeading(mainHeading);
-        dispatch({ type: Constants.CREATE, payload: data });
+        dispatch({ type: 'CREATE', payload: data });
     } catch (error) {
         console.log(error.message);
     }
 };
 export const updateMainHeading = (id, mainHeading) => async (dispatch) => {
+    console.log(id);
     try {
         const { data } = await api.updateMainHeading(id, mainHeading);
         dispatch({ type: 'UPDATE', payload: data });

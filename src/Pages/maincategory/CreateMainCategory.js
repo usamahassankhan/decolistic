@@ -1,49 +1,73 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMainHeading, createMainHeading, updateMainHeading } from '../../actions/mainHeading';
+import { convertSlugToUrl } from 'resources/utilities';
+import {
+    getMainHeading,
+    createMainHeading,
+    updateMainHeading,
+    deleteMainHeading
+} from '../../actions/mainHeading';
+import './CreateMain.css';
 
 function CreateMainCategory() {
-    const dispatch = useDispatch();
-    const [headingClicked, setHeadingClicked] = useState(null);
     const [mainHeading, setMainHeading] = useState({
         mainHeadingName: ''
     });
+
+    const dispatch = useDispatch();
+
+    const [currentId, setCurrentId] = useState(null);
+
     const mainHeadings = useSelector((state) => state.mainHeading);
-    const currentMainHeadingId = useSelector((state) => state.currentMainHeadingId);
-    console.log(currentMainHeadingId);
+    // const currentMainHeadingId = useSelector((state) => state.currentMainHeadingId);
+
     const currentMainHeading = useSelector((state) =>
-        headingClicked ? state.mainHeading.find((h) => h._id === headingClicked) : null
+        currentId ? state.mainHeading.find((h) => h._id === currentId) : null
     );
 
     useEffect(() => {
-        console.log();
-        if (currentMainHeading) setMainHeading(currentMainHeading);
         dispatch(getMainHeading());
-    }, [dispatch, headingClicked]);
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (headingClicked === null) {
-            dispatch(createMainHeading(mainHeading));
-        }
-        //need to add if state of current id
-        setMainHeading({
-            mainHeadingName: ''
-        });
-        setHeadingClicked({
-            headingClicked: null
-        });
-    };
+    }, [dispatch, currentId]);
     useEffect(() => {
+        console.log(currentId);
         if (currentMainHeading) setMainHeading(currentMainHeading);
     }, [currentMainHeading]);
+
+    const handleSubmit = (e) => {
+        if (mainHeading.mainHeadingName === '') {
+            alert('must have something in main heading');
+        } else {
+            e.preventDefault();
+            if (currentId === null) {
+                dispatch(createMainHeading(mainHeading));
+            } else {
+                dispatch(updateMainHeading(currentId, mainHeading));
+            }
+            //need to add if state of current id
+            setMainHeading({
+                mainHeadingName: ''
+            });
+            setCurrentId(null);
+        }
+    };
+
+    function dispatchingABC() {
+        if (currentMainHeading) setMainHeading(currentMainHeading);
+    }
+    useEffect(() => {
+        dispatchingABC();
+    }, []);
+
     return (
         <div>
-            <div>CREATE MAIN CATEGORY</div>
+            <div className='mainpara'>
+                <p>CREATE MAIN CATEGORY</p>
+            </div>
             <div>
                 <form onSubmit={handleSubmit}>
                     <p>Main Category</p>
                     <input
-                        value={mainHeading.mainHeadingName}
+                        value={mainHeading?.mainHeadingName}
                         onChange={(e) =>
                             setMainHeading({ ...mainHeading, mainHeadingName: e.target.value })
                         }
@@ -58,11 +82,33 @@ function CreateMainCategory() {
                 mainHeadings.map((mainH) => (
                     <div key={mainH._id}>
                         <div
-                            style={{ marginTop: '20px', border: '2px solid black' }}
-                            onClick={() => setHeadingClicked(mainH._id)}
+                            style={{
+                                marginTop: '20px',
+                                // border: '2px solid black',
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                backgroundColor: 'white',
+                                boxShadow: '0px 0px 2px 2px gray',
+                                padding: '30px 20px',
+                                borderRadius: '20px'
+                            }}
                         >
-                            <p> {mainH._id}</p>
-                            <p>{mainH.mainHeadingName}</p>
+                            <div>
+                                <p> {mainH._id}</p>
+                                <p>{mainH.mainHeadingName}</p>
+                            </div>
+                            <div>
+                                <button
+                                    onClick={() => dispatch(deleteMainHeading(mainH._id))}
+                                    // onClick={() => console.log('click')}
+                                    className='btn'
+                                >
+                                    DELETE
+                                </button>
+                                <button onClick={() => setCurrentId(mainH._id)} className='btn1'>
+                                    UPDATE
+                                </button>
+                            </div>
                         </div>
                     </div>
                 ))
