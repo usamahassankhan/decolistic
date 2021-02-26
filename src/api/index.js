@@ -19,6 +19,12 @@ export const createSubHeading = (newSubHeading) => API.post('/subheading', newSu
 export const updateSubHeading = (id, updatedSubHeading) =>
     API.patch(`/subheading/${id}`, updatedSubHeading);
 export const deleteSubHeading = (id) => API.delete(`/subheading/${id}`);
+
+export const fetchProducts = () => API.get('/product/getall');
+export const createProducts = (newProducts) => API.post('/product', newProducts);
+export const updateProducts = (id, updatedProducts) => API.patch(`/product/${id}`, updatedProducts);
+export const deleteProducts = (id) => API.delete(`/product/${id}`);
+
 // export const likePost = (id) => API.patch(`posts/${id}/likePost`);
 
 export const signIn = (formData) => API.post('/user/signin', formData);

@@ -71,7 +71,8 @@ function SidebarComponent() {
                     id={SLUGS.CreateSubMainCategory}
                     title='Create Sub Category'
                     level={2}
-                    icon={IconContacts}
+                    // icon={IconContacts}
+                    icon={IconAgents}
                     onClick={() => onClick(SLUGS.CreateSubMainCategory)}
                 />
                 <MenuItem

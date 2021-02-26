@@ -1,104 +1,73 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { convertSlugToUrl } from 'resources/utilities';
-import a from './../../../src/images/a.jpg';
-
 import FileBase from 'react-file-base64';
+import { getMainHeading } from '../../actions/mainHeading';
 import {
-    getMainHeading,
-    createMainHeading,
-    updateMainHeading,
-    deleteMainHeading
-} from '../../actions/mainHeading';
-import './Createsubmain.css';
-import { createSubHeading } from 'api';
+    getSubHeading,
+    createSubHeading,
+    updateSubHeading,
+    deleteSubHeading
+} from '../../actions/subHeading';
+import './CreateMain.css';
 
 function CreateSubMainCategory() {
     const [subHeading, setSubHeading] = useState({
-        mainHeadingName: 'Furniture ',
-        subHeadingName: ' ',
-        image: '  '
+        MainHeadingName: '',
+        subHeadingName: '',
+        subImage: ''
     });
-    console.log('ajeeb', subHeading);
+    // const [mainHeading, setMainHeading] = useState({
+    //     mainHeadingName: ''
+    // });
 
-    const [maincategory, setMaincategory] = useState();
-    const [mainHeading, setMainHeading] = useState({
-        mainHeadingName: ''
-    });
-    console.log('wao', maincategory);
     const dispatch = useDispatch();
 
-    const [headingClicked, setHeadingClicked] = useState(null);
+    const [currentId, setCurrentId] = useState(null);
 
-    const mainHeadings = useSelector((state) => state.mainHeading);
     const subHeadings = useSelector((state) => state.subHeading);
+    const mainHeadings = useSelector((state) => state.mainHeading);
     // const currentMainHeadingId = useSelector((state) => state.currentMainHeadingId);
 
-    const currentMainHeading = useSelector((state) =>
-        headingClicked ? state.mainHeading.find((h) => h._id === headingClicked) : null
+    const currentSubHeading = useSelector((state) =>
+        currentId ? state.subHeading.find((h) => h._id === currentId) : null
     );
 
     useEffect(() => {
-        console.log('USEEFFECT>>>MAIN');
-        if (currentMainHeading) setMainHeading(currentMainHeading);
         dispatch(getMainHeading());
-    }, []);
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // if (headingClicked === 0) {
-        dispatch(createMainHeading(mainHeading));
-
-        //need to add if state of current id
-        setMainHeading({
-            mainHeadingName: ''
-        });
-        setHeadingClicked(null);
-    };
+        dispatch(getSubHeading());
+    }, [dispatch, currentId]);
     useEffect(() => {
-        if (currentMainHeading) setMainHeading(currentMainHeading);
-    }, []);
+        console.log(currentSubHeading);
 
-    const Maincategory = [
-        { title: 'NEW' },
-        { title: 'FURNITURE' },
-        { title: 'OUTDOOR' },
-        { title: 'DECORANDMIRROR' },
-        { title: 'LIGHTING' },
-        { title: 'PILLOWSANDTHROWS' },
-        { title: 'RUGS' },
-        { title: 'KITCHENANDDINNING' },
-        { title: 'BEDDINGANDBATH' },
-        { title: 'GIFTS' },
+        if (currentSubHeading) setSubHeading(currentSubHeading);
+    }, [currentId]);
 
-        { title: 'SALEANDOFFERS' }
-    ];
-    const Subcategory = {
-        NEW: [
-            { title: 'VIEWALL' },
-            { title: 'FURNITURE' },
-            { title: 'OUTDOOR' },
-            { title: 'LIGHTING' },
-            { title: 'PILLOWSANDTHROWS' },
-            { title: 'RUGS' },
-            { title: 'KITCHENANDDINNING' },
-            { title: 'BEDDINGANDBATH' },
-            { title: 'OURFAOURATES' },
-            { title: 'DECORSANDMIRRORS' }
-        ],
-        FURNITURE: [
-            { title: 'LIVING ROOM FURNIRURE' },
-            { title: 'DINING ROOM FURNITURE' },
-            { title: 'BEDROOM FURNITURE' },
-            { title: 'STORAGE AND MEDIA FURNITURE' },
-            { title: 'PILLOWSANDTHROWS' },
-            { title: 'OFFICE FURNITURE' },
-            { title: 'BEST SELLERS' },
-            { title: 'BEDDINGANDBATH' },
-            { title: 'OURFAOURATES' },
-            { title: 'DECORSANDMIRRORS' }
-        ],
-        Decor: [{ title: 'd' }, { title: 'Decor' }]
+    const handleSubmit = (e) => {
+        if (subHeading.subHeadingName === '') {
+            alert('must have something in sub heading');
+        } else {
+            e.preventDefault();
+            if (currentId === null) {
+                dispatch(createSubHeading(subHeading));
+            } else {
+                dispatch(updateSubHeading(currentId, subHeading));
+            }
+            //need to add if state of current id
+            setSubHeading({
+                mainHeadingName: '',
+                subHeadingName: '',
+                subImage: ''
+            });
+            setCurrentId(null);
+        }
     };
+
+    function dispatchingABC() {
+        if (currentSubHeading) setSubHeading(currentSubHeading);
+    }
+    useEffect(() => {
+        dispatchingABC();
+    }, [currentId]);
 
     return (
         <div>
@@ -113,6 +82,7 @@ function CreateSubMainCategory() {
                             onChange={(e) =>
                                 setSubHeading({ ...subHeading, mainHeadingName: e.target.value })
                             }
+                            value={subHeading?.MainHeadingName}
                         >
                             {mainHeadings.map((a) => (
                                 <option>{a.mainHeadingName}</option>
@@ -125,27 +95,13 @@ function CreateSubMainCategory() {
                             onChange={(e) =>
                                 setSubHeading({ ...subHeading, subHeadingName: e.target.value })
                             }
+                            value={subHeading?.subHeadingName}
                         />
-                        {/* <input
-                            value={mainHeading.mainHeadingName}
-                            onChange={(e) =>
-                                setMainHeading({ ...mainHeading, mainHeadingName: e.target.value })
-                            }
-                        /> */}
-                        {/* <div>
-                            <label>Sub Category</label>
-                            <select>
-                                {console.log('MAIN CATeGORY>>', maincategory)}
-                                {Subcategory[maincategory]?.map((a) => (
-                                    <option>{a.title}</option>
-                                ))}
-                            </select>
-                        </div> */}
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label>INSERT IMAGE</label>
                         <FileBase
-                            onDone={(base64) => setSubHeading({ ...subHeading, image: base64 })}
+                            onDone={(base64) => setSubHeading({ ...subHeading, subImage: base64 })}
                             type='file'
                             multiple={false}
                         />
@@ -154,65 +110,65 @@ function CreateSubMainCategory() {
                         submit
                     </button>
                 </form>
-            </div>
-
-            {mainHeadings.length === null ? (
-                <div> no main heading </div>
-            ) : (
-                mainHeadings.map((mainH) => (
-                    <div key={mainH._id}>
-                        <div
-                            style={{
-                                marginTop: '20px',
-                                // border: '2px solid black',
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                backgroundColor: 'white',
-                                boxShadow: '0px 0px 2px 2px gray',
-                                padding: '30px 20px',
-                                borderRadius: '20px',
-                                alignItems: 'center'
-                            }}
-                        >
-                            <div>
+                {subHeadings.length === null ? (
+                    <div> no sub heading </div>
+                ) : (
+                    subHeadings.map((subH) => (
+                        <div key={subH._id}>
+                            <div
+                                style={{
+                                    marginTop: '20px',
+                                    // border: '2px solid black',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    backgroundColor: 'white',
+                                    boxShadow: '0px 0px 2px 2px gray',
+                                    padding: '30px 20px',
+                                    borderRadius: '20px',
+                                    alignItems: 'center'
+                                }}
+                            >
                                 <div>
-                                    {/* <p> {mainH._id}</p> */}
-                                    <p>Main Heading</p>
-                                    <p>{mainH.mainHeadingName}</p>
+                                    <div>
+                                        {/* <p> {mainH._id}</p> */}
+                                        <p>Main Heading</p>
+                                        <p>{subH.mainHeadingName}</p>
+                                    </div>
+                                    <div>
+                                        {/* <p> {mainH._id}</p> */}
+                                        <p>Sub Heading</p>
+                                        <p>{subH.subHeadingName}</p>
+                                    </div>
                                 </div>
                                 <div>
                                     {/* <p> {mainH._id}</p> */}
-                                    <p>Sub Heading</p>
-                                    <p>{mainH.mainHeadingName}</p>
+                                    <p>Image</p>
+                                    <p>
+                                        <img
+                                            className='imgsubheading'
+                                            src={subH.subImage}
+                                            alt='ajao'
+                                        />
+                                    </p>
                                 </div>
-                            </div>
-                            <div>
-                                {/* <p> {mainH._id}</p> */}
-                                <p>Image</p>
-                                <p>
-                                    <img className='imgsubheading' src={a} />
-                                </p>
-                            </div>
 
-                            <div>
-                                <button
-                                    onClick={() => dispatch(deleteMainHeading(mainH._id))}
-                                    // onClick={() => console.log('click')}
-                                    className='btn'
-                                >
-                                    DELETE
-                                </button>
-                                <button
-                                    onClick={() => setHeadingClicked(mainH._id)}
-                                    className='btn1'
-                                >
-                                    UPDATE
-                                </button>
+                                <div>
+                                    <button
+                                        onClick={() => dispatch(deleteSubHeading(subH._id))}
+                                        // onClick={() => console.log('click')}
+                                        className='btn'
+                                    >
+                                        DELETE
+                                    </button>
+                                    <button onClick={() => setCurrentId(subH._id)} className='btn1'>
+                                        UPDATE
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))
-            )}
+                    ))
+                )}
+            </div>
         </div>
     );
 }
