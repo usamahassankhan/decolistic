@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { convertSlugToUrl } from 'resources/utilities';
+import FileBase from 'react-file-base64';
 import {
     getMainHeading,
     createMainHeading,
@@ -10,6 +11,13 @@ import {
 import './CreateMain.css';
 
 function ViewMainCategory() {
+    const [subHeading, setSubHeading] = useState({
+        mainHeadingName: ' ',
+        subHeadingName: ' ',
+        image: '  '
+    });
+    console.log('ajeeb', subHeading);
+
     const [maincategory, setMaincategory] = useState();
     const [mainHeading, setMainHeading] = useState({
         mainHeadingName: ''
@@ -20,6 +28,7 @@ function ViewMainCategory() {
     const [headingClicked, setHeadingClicked] = useState(null);
 
     const mainHeadings = useSelector((state) => state.mainHeading);
+    const subHeadings = useSelector((state) => state.subHeading);
     // const currentMainHeadingId = useSelector((state) => state.currentMainHeadingId);
 
     const currentMainHeading = useSelector((state) =>
@@ -95,23 +104,32 @@ function ViewMainCategory() {
             </div>
             <div>
                 <form onSubmit={handleSubmit}>
-                    <p>SUB Category</p>
-                    <input
-                        value={mainHeading.mainHeadingName}
-                        onChange={(e) =>
-                            setMainHeading({ ...mainHeading, mainHeadingName: e.target.value })
-                        }
-                    />
                     <div>
-                        <div>
-                            <label>Main Category</label>
-                            <select onChange={(e) => setMaincategory(e.target.value)}>
-                                {mainHeadings.map((a) => (
-                                    <option>{a.mainHeadingName}</option>
-                                ))}
-                            </select>
-                        </div>
-                        <div>
+                        <label>Main Category</label>
+                        <select
+                            onChange={(e) =>
+                                setSubHeading({ ...subHeading, mainHeadingName: e.target.value })
+                            }
+                        >
+                            {mainHeadings.map((a) => (
+                                <option>{a.mainHeadingName}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <div>
+                        <p>SUB Category</p>
+                        <input
+                            onChange={(e) =>
+                                setSubHeading({ ...subHeading, subHeadingName: e.target.value })
+                            }
+                        />
+                        {/* <input
+                            value={mainHeading.mainHeadingName}
+                            onChange={(e) =>
+                                setMainHeading({ ...mainHeading, mainHeadingName: e.target.value })
+                            }
+                        /> */}
+                        {/* <div>
                             <label>Sub Category</label>
                             <select>
                                 {console.log('MAIN CATeGORY>>', maincategory)}
@@ -119,7 +137,15 @@ function ViewMainCategory() {
                                     <option>{a.title}</option>
                                 ))}
                             </select>
-                        </div>
+                        </div> */}
+                    </div>
+                    <div>
+                        <label>INSERT IMAGE</label>
+                        <FileBase
+                            onDone={(base64) => setSubHeading({ ...subHeading, image: base64 })}
+                            type='file'
+                            multiple={false}
+                        />
                     </div>
                     <button type='submit'>submit</button>
                 </form>

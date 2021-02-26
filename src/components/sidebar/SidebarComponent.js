@@ -68,11 +68,18 @@ function SidebarComponent() {
                     onClick={() => onClick(SLUGS.mainCategory)}
                 />
                 <MenuItem
-                    id={SLUGS.overviewTwo}
-                    title='View Main Category'
+                    id={SLUGS.CreateSubMainCategory}
+                    title='Create Sub Category'
                     level={2}
                     icon={IconContacts}
-                    onClick={() => onClick(SLUGS.viewMainCategory)}
+                    onClick={() => onClick(SLUGS.CreateSubMainCategory)}
+                />
+                <MenuItem
+                    id={SLUGS.CreateSubSubMainCategory}
+                    title='Create Sub Sub Category'
+                    level={2}
+                    icon={IconContacts}
+                    onClick={() => onClick(SLUGS.CreateSubSubMainCategory)}
                 />
             </MenuItem>
             <MenuItem

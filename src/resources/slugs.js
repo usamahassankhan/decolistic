@@ -2,7 +2,9 @@ export default {
     // private
     dashboard: '/dashboard',
     mainCategory: '/mainCategory',
-    viewMainCategory: '/maincategory/view',
+    CreateSubMainCategory: '/maincategory/sub',
+    CreateSubSubMainCategory: '/maincategory/subsub',
+
     overviewThree: '/overview/three',
     tickets: '/tickets',
     ideas: '/ideas',
