@@ -12,7 +12,7 @@ import './CreateMain.css';
 
 function CreateSubMainCategory() {
     const [subHeading, setSubHeading] = useState({
-        MainHeadingName: '',
+        mainHeadingName: '',
         subHeadingName: '',
         subImage: ''
     });

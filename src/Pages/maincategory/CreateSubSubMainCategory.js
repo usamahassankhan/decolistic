@@ -11,12 +11,18 @@ import {
 } from '../../actions/mainHeading';
 import './Createsubmain.css';
 import { createSubHeading, getSubHeading, updateSubHeading } from '../../actions/subHeading';
+import {
+    createSubSubHeading,
+    getSubSubHeading,
+    updateSubSubHeading,
+    deleteSubSubHeading
+} from '../../actions/subSubHeading';
 
 function CreateSubSubMainCategory() {
-    const [subHeading, setSubHeading] = useState({
+    const [subSubHeading, setSubSubHeading] = useState({
         mainHeadingName: '',
         subHeadingName: '',
-        subImage: ''
+        subSubHeadingName: ''
     });
     // const [mainHeading, setMainHeading] = useState({
     //     mainHeadingName: ''
@@ -26,46 +32,48 @@ function CreateSubSubMainCategory() {
 
     const [currentId, setCurrentId] = useState(null);
 
+    const subSubHeadings = useSelector((state) => state.subSubHeading);
     const subHeadings = useSelector((state) => state.subHeading);
     const mainHeadings = useSelector((state) => state.mainHeading);
     // const currentMainHeadingId = useSelector((state) => state.currentMainHeadingId);
 
-    const currentSubHeading = useSelector((state) =>
-        currentId ? state.subHeading.find((h) => h._id === currentId) : null
+    const currentSubSubHeading = useSelector((state) =>
+        currentId ? state.subSubHeading.find((h) => h._id === currentId) : null
     );
 
     useEffect(() => {
         dispatch(getMainHeading());
         dispatch(getSubHeading());
+        dispatch(getSubSubHeading());
     }, [dispatch, currentId]);
     useEffect(() => {
-        console.log(currentSubHeading);
+        console.log(currentSubSubHeading);
 
-        if (currentSubHeading) setSubHeading(currentSubHeading);
+        if (currentSubSubHeading) setSubSubHeading(currentSubSubHeading);
     }, [currentId]);
 
     const handleSubmit = (e) => {
-        if (subHeading.subHeadingName === '') {
+        if (subSubHeading.subSubHeadingName === '') {
             alert('must have something in sub heading');
         } else {
             e.preventDefault();
             if (currentId === null) {
-                dispatch(createSubHeading(subHeading));
+                dispatch(createSubSubHeading(subSubHeading));
             } else {
-                dispatch(updateSubHeading(currentId, subHeading));
+                dispatch(updateSubSubHeading(currentId, subSubHeading));
             }
             //need to add if state of current id
-            setSubHeading({
+            setSubSubHeading({
                 mainHeadingName: '',
                 subHeadingName: '',
-                subImage: ''
+                subSubHeadingName: ''
             });
             setCurrentId(null);
         }
     };
 
     function dispatchingABC() {
-        if (currentSubHeading) setSubHeading(currentSubHeading);
+        if (currentSubSubHeading) setSubSubHeading(currentSubSubHeading);
     }
     useEffect(() => {
         dispatchingABC();
@@ -82,7 +90,10 @@ function CreateSubSubMainCategory() {
                         <label>Main Category</label>
                         <select
                             onChange={(e) =>
-                                setSubHeading({ ...subHeading, mainHeadingName: e.target.value })
+                                setSubSubHeading({
+                                    ...subSubHeading,
+                                    mainHeadingName: e.target.value
+                                })
                             }
                         >
                             {mainHeadings.map((a) => (
@@ -99,11 +110,14 @@ function CreateSubSubMainCategory() {
                         /> */}
                         <select
                             onChange={(e) =>
-                                setSubHeading({ ...subHeading, subHeadingName: e.target.value })
+                                setSubSubHeading({
+                                    ...subSubHeading,
+                                    subHeadingName: e.target.value
+                                })
                             }
                         >
                             {subHeadings.map((a) =>
-                                a.mainHeadingName === subHeading.mainHeadingName ? (
+                                a.mainHeadingName === subSubHeading.mainHeadingName ? (
                                     <option>{a.subHeadingName}</option>
                                 ) : null
                             )}
@@ -113,28 +127,24 @@ function CreateSubSubMainCategory() {
                         <p>SUB OF SUB CATEGORY</p>
                         <input
                             onChange={(e) =>
-                                setSubHeading({ ...subHeading, subHeadingName: e.target.value })
+                                setSubSubHeading({
+                                    ...subSubHeading,
+                                    subSubHeadingName: e.target.value
+                                })
                             }
                         />
                     </div>
-                    {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <label>INSERT IMAGE</label>
-                        <FileBase
-                            onDone={(base64) => setSubHeading({ ...subHeading, image: base64 })}
-                            type='file'
-                            multiple={false}
-                        />
-                    </div> */}
+
                     <button className='btnsub' type='submit'>
                         submit
                     </button>
                 </form>
             </div>
 
-            {mainHeadings.length === null ? (
+            {subSubHeadings.length === null ? (
                 <div> no main heading </div>
             ) : (
-                mainHeadings.map((mainH) => (
+                subSubHeadings.map((mainH) => (
                     <div key={mainH._id}>
                         <div
                             style={{
@@ -158,18 +168,18 @@ function CreateSubSubMainCategory() {
                                 <div>
                                     {/* <p> {mainH._id}</p> */}
                                     <p>Sub Heading</p>
-                                    <p>{mainH.mainHeadingName}</p>
+                                    <p>{mainH.subHeadingName}</p>
                                 </div>
-                            </div>
-                            <div>
-                                {/* <p> {mainH._id}</p> */}
-                                <p>Image</p>
-                                <p>{/* <img className='imgsubheading' src={a} /> */}</p>
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>Sub Sub Heading</p>
+                                    <p>{mainH.subSubHeadingName}</p>
+                                </div>
                             </div>
 
                             <div>
                                 <button
-                                    onClick={() => dispatch(deleteMainHeading(mainH._id))}
+                                    onClick={() => dispatch(deleteSubSubHeading(mainH._id))}
                                     // onClick={() => console.log('click')}
                                     className='btn'
                                 >

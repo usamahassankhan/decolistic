@@ -27,5 +27,11 @@ export const deleteProducts = (id) => API.delete(`/product/${id}`);
 
 // export const likePost = (id) => API.patch(`posts/${id}/likePost`);
 
+export const fetchSubSubHeading = () => API.get('/subsubheading/getall');
+export const createSubSubHeading = (newSubHeading) => API.post('/subsubheading', newSubHeading);
+export const updateSubSubHeading = (id, updatedSubSubHeading) =>
+    API.patch(`/subsubheading/${id}`, updatedSubSubHeading);
+export const deleteSubSubHeading = (id) => API.delete(`/subsubheading/${id}`);
+
 export const signIn = (formData) => API.post('/user/signin', formData);
 export const signUp = (formData) => API.post('/user/signup', formData);
