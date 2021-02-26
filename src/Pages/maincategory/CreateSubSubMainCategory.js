@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { convertSlugToUrl } from 'resources/utilities';
+
 import FileBase from 'react-file-base64';
 import {
     getMainHeading,
@@ -8,107 +9,91 @@ import {
     updateMainHeading,
     deleteMainHeading
 } from '../../actions/mainHeading';
-import './CreateMain.css';
+import './Createsubmain.css';
+import { createSubHeading, getSubHeading, updateSubHeading } from '../../actions/subHeading';
+import {
+    createSubSubHeading,
+    getSubSubHeading,
+    updateSubSubHeading,
+    deleteSubSubHeading
+} from '../../actions/subSubHeading';
 
-function ViewMainCategory() {
-    const [subHeading, setSubHeading] = useState({
-        mainHeadingName: ' ',
-        subHeadingName: ' ',
-        image: '  '
+function CreateSubSubMainCategory() {
+    const [subSubHeading, setSubSubHeading] = useState({
+        mainHeadingName: '',
+        subHeadingName: '',
+        subSubHeadingName: ''
     });
-    console.log('ajeeb', subHeading);
+    // const [mainHeading, setMainHeading] = useState({
+    //     mainHeadingName: ''
+    // });
 
-    const [maincategory, setMaincategory] = useState();
-    const [mainHeading, setMainHeading] = useState({
-        mainHeadingName: ''
-    });
-    console.log('wao', maincategory);
     const dispatch = useDispatch();
 
-    const [headingClicked, setHeadingClicked] = useState(null);
+    const [currentId, setCurrentId] = useState(null);
 
-    const mainHeadings = useSelector((state) => state.mainHeading);
+    const subSubHeadings = useSelector((state) => state.subSubHeading);
     const subHeadings = useSelector((state) => state.subHeading);
+    const mainHeadings = useSelector((state) => state.mainHeading);
     // const currentMainHeadingId = useSelector((state) => state.currentMainHeadingId);
 
-    const currentMainHeading = useSelector((state) =>
-        headingClicked ? state.mainHeading.find((h) => h._id === headingClicked) : null
+    const currentSubSubHeading = useSelector((state) =>
+        currentId ? state.subSubHeading.find((h) => h._id === currentId) : null
     );
 
     useEffect(() => {
-        console.log('USEEFFECT>>>MAIN');
-        if (currentMainHeading) setMainHeading(currentMainHeading);
         dispatch(getMainHeading());
-    }, []);
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // if (headingClicked === 0) {
-        dispatch(createMainHeading(mainHeading));
-
-        //need to add if state of current id
-        setMainHeading({
-            mainHeadingName: ''
-        });
-        setHeadingClicked(null);
-    };
+        dispatch(getSubHeading());
+        dispatch(getSubSubHeading());
+    }, [dispatch, currentId]);
     useEffect(() => {
-        if (currentMainHeading) setMainHeading(currentMainHeading);
-    }, []);
+        console.log(currentSubSubHeading);
 
-    const Maincategory = [
-        { title: 'NEW' },
-        { title: 'FURNITURE' },
-        { title: 'OUTDOOR' },
-        { title: 'DECORANDMIRROR' },
-        { title: 'LIGHTING' },
-        { title: 'PILLOWSANDTHROWS' },
-        { title: 'RUGS' },
-        { title: 'KITCHENANDDINNING' },
-        { title: 'BEDDINGANDBATH' },
-        { title: 'GIFTS' },
+        if (currentSubSubHeading) setSubSubHeading(currentSubSubHeading);
+    }, [currentId]);
 
-        { title: 'SALEANDOFFERS' }
-    ];
-    const Subcategory = {
-        NEW: [
-            { title: 'VIEWALL' },
-            { title: 'FURNITURE' },
-            { title: 'OUTDOOR' },
-            { title: 'LIGHTING' },
-            { title: 'PILLOWSANDTHROWS' },
-            { title: 'RUGS' },
-            { title: 'KITCHENANDDINNING' },
-            { title: 'BEDDINGANDBATH' },
-            { title: 'OURFAOURATES' },
-            { title: 'DECORSANDMIRRORS' }
-        ],
-        FURNITURE: [
-            { title: 'LIVING ROOM FURNIRURE' },
-            { title: 'DINING ROOM FURNITURE' },
-            { title: 'BEDROOM FURNITURE' },
-            { title: 'STORAGE AND MEDIA FURNITURE' },
-            { title: 'PILLOWSANDTHROWS' },
-            { title: 'OFFICE FURNITURE' },
-            { title: 'BEST SELLERS' },
-            { title: 'BEDDINGANDBATH' },
-            { title: 'OURFAOURATES' },
-            { title: 'DECORSANDMIRRORS' }
-        ],
-        Decor: [{ title: 'd' }, { title: 'Decor' }]
+    const handleSubmit = (e) => {
+        if (subSubHeading.subSubHeadingName === '') {
+            alert('must have something in sub heading');
+        } else {
+            e.preventDefault();
+            if (currentId === null) {
+                dispatch(createSubSubHeading(subSubHeading));
+            } else {
+                dispatch(updateSubSubHeading(currentId, subSubHeading));
+            }
+            //need to add if state of current id
+            setSubSubHeading({
+                mainHeadingName: '',
+                subHeadingName: '',
+                subSubHeadingName: ''
+            });
+            setCurrentId(null);
+        }
     };
+
+    function dispatchingABC() {
+        if (currentSubSubHeading) setSubSubHeading(currentSubSubHeading);
+    }
+    useEffect(() => {
+        dispatchingABC();
+    }, [currentId]);
 
     return (
         <div>
             <div className='mainpara'>
-                <p>CREATE SUB CATEGORY</p>
+                <p>CREATE SUB OF SUB CATEGORY</p>
             </div>
-            <div>
+            <div className='mainsubpara'>
                 <form onSubmit={handleSubmit}>
-                    <div>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label>Main Category</label>
                         <select
                             onChange={(e) =>
-                                setSubHeading({ ...subHeading, mainHeadingName: e.target.value })
+                                setSubSubHeading({
+                                    ...subSubHeading,
+                                    mainHeadingName: e.target.value
+                                })
                             }
                         >
                             {mainHeadings.map((a) => (
@@ -116,45 +101,50 @@ function ViewMainCategory() {
                             ))}
                         </select>
                     </div>
-                    <div>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <p>SUB Category</p>
-                        <input
+                        {/* <input
                             onChange={(e) =>
                                 setSubHeading({ ...subHeading, subHeadingName: e.target.value })
                             }
-                        />
-                        {/* <input
-                            value={mainHeading.mainHeadingName}
-                            onChange={(e) =>
-                                setMainHeading({ ...mainHeading, mainHeadingName: e.target.value })
-                            }
                         /> */}
-                        {/* <div>
-                            <label>Sub Category</label>
-                            <select>
-                                {console.log('MAIN CATeGORY>>', maincategory)}
-                                {Subcategory[maincategory]?.map((a) => (
-                                    <option>{a.title}</option>
-                                ))}
-                            </select>
-                        </div> */}
+                        <select
+                            onChange={(e) =>
+                                setSubSubHeading({
+                                    ...subSubHeading,
+                                    subHeadingName: e.target.value
+                                })
+                            }
+                        >
+                            {subHeadings.map((a) =>
+                                a.mainHeadingName === subSubHeading.mainHeadingName ? (
+                                    <option>{a.subHeadingName}</option>
+                                ) : null
+                            )}
+                        </select>
                     </div>
-                    <div>
-                        <label>INSERT IMAGE</label>
-                        <FileBase
-                            onDone={(base64) => setSubHeading({ ...subHeading, image: base64 })}
-                            type='file'
-                            multiple={false}
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <p>SUB OF SUB CATEGORY</p>
+                        <input
+                            onChange={(e) =>
+                                setSubSubHeading({
+                                    ...subSubHeading,
+                                    subSubHeadingName: e.target.value
+                                })
+                            }
                         />
                     </div>
-                    <button type='submit'>submit</button>
+
+                    <button className='btnsub' type='submit'>
+                        submit
+                    </button>
                 </form>
             </div>
 
-            {/* {mainHeadings.length === null ? (
+            {subSubHeadings.length === null ? (
                 <div> no main heading </div>
             ) : (
-                mainHeadings.map((mainH) => (
+                subSubHeadings.map((mainH) => (
                     <div key={mainH._id}>
                         <div
                             style={{
@@ -165,34 +155,46 @@ function ViewMainCategory() {
                                 backgroundColor: 'white',
                                 boxShadow: '0px 0px 2px 2px gray',
                                 padding: '30px 20px',
-                                borderRadius: '20px'
+                                borderRadius: '20px',
+                                alignItems: 'center'
                             }}
                         >
                             <div>
-                                <p> {mainH._id}</p>
-                                <p>{mainH.mainHeadingName}</p>
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>Main Heading</p>
+                                    <p>{mainH.mainHeadingName}</p>
+                                </div>
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>Sub Heading</p>
+                                    <p>{mainH.subHeadingName}</p>
+                                </div>
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>Sub Sub Heading</p>
+                                    <p>{mainH.subSubHeadingName}</p>
+                                </div>
                             </div>
+
                             <div>
                                 <button
-                                    onClick={() => dispatch(deleteMainHeading(mainH._id))}
+                                    onClick={() => dispatch(deleteSubSubHeading(mainH._id))}
                                     // onClick={() => console.log('click')}
                                     className='btn'
                                 >
                                     DELETE
                                 </button>
-                                <button
-                                    onClick={() => setHeadingClicked(mainH._id)}
-                                    className='btn1'
-                                >
+                                <button onClick={() => setCurrentId(mainH._id)} className='btn1'>
                                     UPDATE
                                 </button>
                             </div>
                         </div>
                     </div>
                 ))
-            )} */}
+            )}
         </div>
     );
 }
 
-export default ViewMainCategory;
+export default CreateSubSubMainCategory;
