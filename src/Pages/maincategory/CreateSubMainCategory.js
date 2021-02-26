@@ -79,11 +79,13 @@ function CreateSubMainCategory() {
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label>Main Category</label>
                         <select
+                            required
                             onChange={(e) =>
                                 setSubHeading({ ...subHeading, mainHeadingName: e.target.value })
                             }
                             value={subHeading?.MainHeadingName}
                         >
+                            <option></option>
                             {mainHeadings.map((a) => (
                                 <option>{a.mainHeadingName}</option>
                             ))}
@@ -92,6 +94,7 @@ function CreateSubMainCategory() {
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <p>SUB Category</p>
                         <input
+                            required
                             onChange={(e) =>
                                 setSubHeading({ ...subHeading, subHeadingName: e.target.value })
                             }
@@ -147,7 +150,7 @@ function CreateSubMainCategory() {
                                         <img
                                             className='imgsubheading'
                                             src={subH.subImage}
-                                            alt='ajao'
+                                            alt='img'
                                         />
                                     </p>
                                 </div>
