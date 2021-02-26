@@ -81,7 +81,16 @@ function SidebarComponent() {
                     icon={IconContacts}
                     onClick={() => onClick(SLUGS.CreateSubSubMainCategory)}
                 />
+                <MenuItem
+                    id={SLUGS.ProductComponents}
+                    title='Products'
+                    level={2}
+                    icon={IconContacts}
+                    onClick={() => onClick(SLUGS.ProductComponents)}
+                />
+                {/* </MenuItem> */}
             </MenuItem>
+
             <MenuItem
                 id={SLUGS.tickets}
                 title='Tickets'

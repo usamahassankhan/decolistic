@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { convertSlugToUrl } from 'resources/utilities';
+import a from './../../../src/images/a.jpg';
+
 import FileBase from 'react-file-base64';
 import {
     getMainHeading,
@@ -8,12 +10,12 @@ import {
     updateMainHeading,
     deleteMainHeading
 } from '../../actions/mainHeading';
-import './CreateMain.css';
+import './Createsubmain.css';
 import { createSubHeading } from 'api';
 
 function CreateSubMainCategory() {
     const [subHeading, setSubHeading] = useState({
-        mainHeadingName: ' ',
+        mainHeadingName: 'Furniture ',
         subHeadingName: ' ',
         image: '  '
     });
@@ -103,9 +105,9 @@ function CreateSubMainCategory() {
             <div className='mainpara'>
                 <p>CREATE SUB CATEGORY</p>
             </div>
-            <div>
+            <div className='mainsubpara'>
                 <form onSubmit={handleSubmit}>
-                    <div>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label>Main Category</label>
                         <select
                             onChange={(e) =>
@@ -117,7 +119,7 @@ function CreateSubMainCategory() {
                             ))}
                         </select>
                     </div>
-                    <div>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <p>SUB Category</p>
                         <input
                             onChange={(e) =>
@@ -140,7 +142,7 @@ function CreateSubMainCategory() {
                             </select>
                         </div> */}
                     </div>
-                    <div>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label>INSERT IMAGE</label>
                         <FileBase
                             onDone={(base64) => setSubHeading({ ...subHeading, image: base64 })}
@@ -148,11 +150,13 @@ function CreateSubMainCategory() {
                             multiple={false}
                         />
                     </div>
-                    <button type='submit'>submit</button>
+                    <button className='btnsub' type='submit'>
+                        submit
+                    </button>
                 </form>
             </div>
 
-            {/* {mainHeadings.length === null ? (
+            {mainHeadings.length === null ? (
                 <div> no main heading </div>
             ) : (
                 mainHeadings.map((mainH) => (
@@ -166,13 +170,30 @@ function CreateSubMainCategory() {
                                 backgroundColor: 'white',
                                 boxShadow: '0px 0px 2px 2px gray',
                                 padding: '30px 20px',
-                                borderRadius: '20px'
+                                borderRadius: '20px',
+                                alignItems: 'center'
                             }}
                         >
                             <div>
-                                <p> {mainH._id}</p>
-                                <p>{mainH.mainHeadingName}</p>
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>Main Heading</p>
+                                    <p>{mainH.mainHeadingName}</p>
+                                </div>
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>Sub Heading</p>
+                                    <p>{mainH.mainHeadingName}</p>
+                                </div>
                             </div>
+                            <div>
+                                {/* <p> {mainH._id}</p> */}
+                                <p>Image</p>
+                                <p>
+                                    <img className='imgsubheading' src={a} />
+                                </p>
+                            </div>
+
                             <div>
                                 <button
                                     onClick={() => dispatch(deleteMainHeading(mainH._id))}
@@ -191,7 +212,7 @@ function CreateSubMainCategory() {
                         </div>
                     </div>
                 ))
-            )} */}
+            )}
         </div>
     );
 }

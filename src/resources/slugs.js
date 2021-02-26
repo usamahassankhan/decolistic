@@ -4,6 +4,7 @@ export default {
     mainCategory: '/mainCategory',
     CreateSubMainCategory: '/maincategory/sub',
     CreateSubSubMainCategory: '/maincategory/subsub',
+    ProductComponents: '/maincategory/productcomponents',
 
     overviewThree: '/overview/three',
     tickets: '/tickets',

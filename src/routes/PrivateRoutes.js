@@ -6,6 +6,7 @@ import CreateMainHeading from 'Pages/maincategory/CreateMainCategory';
 import CreateSubMainCategory from 'Pages/maincategory/CreateSubMainCategory';
 import CreateSubSubMainCategory from 'Pages/maincategory/CreateSubSubMainCategory';
 import ViewMainCategory from 'Pages/maincategory/CreateSubSubMainCategory';
+import ProductComponents from 'Pages/maincategory/ProductComponents';
 const DashboardComponent = lazy(() => import('./dashboard'));
 
 function PrivateRoutes() {
@@ -15,6 +16,7 @@ function PrivateRoutes() {
                 <Route exact path={SLUGS.dashboard} component={DashboardComponent} />
                 <Route exact path={SLUGS.mainCategory} component={CreateMainHeading} />
                 <Route exact path={SLUGS.CreateSubMainCategory} component={CreateSubMainCategory} />
+                <Route exact path={SLUGS.ProductComponents} component={ProductComponents} />
                 <Route
                     exact
                     path={SLUGS.CreateSubSubMainCategory}

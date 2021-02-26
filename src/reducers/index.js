@@ -3,9 +3,12 @@ import posts from './posts';
 import auth from './auth';
 import mainHeading from './mainHeading';
 import currentMainHeadingId from './currentMainHeading';
+import subSubHeading from './subSubHeading';
+
 export default combineReducers({
     posts,
     auth,
     mainHeading,
-    currentMainHeadingId
+    currentMainHeadingId,
+    subSubHeading
 });

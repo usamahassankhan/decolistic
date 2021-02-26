@@ -1,0 +1,20 @@
+.productmain {
+    /* display: flex;
+    width: 1000px; */
+}
+.multi {
+    background-color: white;
+    color: black;
+}
+.btn3 {
+    padding: 10px 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.btn3:hover {
+    background-color: green;
+    color: white;
+}
