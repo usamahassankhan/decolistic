@@ -83,8 +83,11 @@ function CreateSubSubMainCategory() {
                                 })
                             }
                         >
+                            <option></option>
                             {mainHeadings.map((a) => (
-                                <option>{a.mainHeadingName}</option>
+                                <>
+                                    <option>{a.mainHeadingName}</option>
+                                </>
                             ))}
                         </select>
                     </div>
