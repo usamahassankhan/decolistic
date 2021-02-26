@@ -10,12 +10,12 @@ import {
     deleteSubHeading
 } from '../../actions/subHeading';
 import './Createcolor.css';
+import { getColor, createColor, updateColor, deleteColor } from '../../actions/color';
 
 function Createcolor() {
-    const [subHeading, setSubHeading] = useState({
-        mainHeadingName: '',
-        subHeadingName: '',
-        subImage: ''
+    const [color, setColor] = useState({
+        colorName: '',
+        colorImage: ''
     });
     // const [mainHeading, setMainHeading] = useState({
     //     mainHeadingName: ''
@@ -25,46 +25,43 @@ function Createcolor() {
 
     const [currentId, setCurrentId] = useState(null);
 
-    const subHeadings = useSelector((state) => state.subHeading);
-    const mainHeadings = useSelector((state) => state.mainHeading);
+    const colors = useSelector((state) => state.color);
     // const currentMainHeadingId = useSelector((state) => state.currentMainHeadingId);
 
-    const currentSubHeading = useSelector((state) =>
-        currentId ? state.subHeading.find((h) => h._id === currentId) : null
+    const currentColor = useSelector((state) =>
+        currentId ? state.color.find((h) => h._id === currentId) : null
     );
 
     useEffect(() => {
-        dispatch(getMainHeading());
-        dispatch(getSubHeading());
+        dispatch(getColor());
     }, [dispatch, currentId]);
     useEffect(() => {
-        console.log(currentSubHeading);
+        console.log(currentColor);
 
-        if (currentSubHeading) setSubHeading(currentSubHeading);
+        if (currentColor) setColor(currentColor);
     }, [currentId]);
 
     const handleSubmit = (e) => {
-        if (subHeading.subHeadingName === '') {
-            alert('must have something in sub heading');
+        if (color.colorName === '') {
+            alert('must have something in color');
         } else {
             e.preventDefault();
             if (currentId === null) {
-                dispatch(createSubHeading(subHeading));
+                dispatch(createColor(color));
             } else {
-                dispatch(updateSubHeading(currentId, subHeading));
+                dispatch(updateColor(currentId, color));
             }
             //need to add if state of current id
-            setSubHeading({
-                mainHeadingName: '',
-                subHeadingName: '',
-                subImage: ''
+            setColor({
+                colorName: '',
+                colorImage: ''
             });
             setCurrentId(null);
         }
     };
 
     function dispatchingABC() {
-        if (currentSubHeading) setSubHeading(currentSubHeading);
+        if (currentColor) setColor(currentColor);
     }
     useEffect(() => {
         dispatchingABC();
@@ -77,32 +74,17 @@ function Createcolor() {
             </div>
             <div className='mainsubpara'>
                 <form onSubmit={handleSubmit}>
-                    {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <label>Main Category</label>
-                        <select
-                            onChange={(e) =>
-                                setSubHeading({ ...subHeading, mainHeadingName: e.target.value })
-                            }
-                            value={subHeading?.MainHeadingName}
-                        >
-                            {mainHeadings.map((a) => (
-                                <option>{a.mainHeadingName}</option>
-                            ))}
-                        </select>
-                    </div> */}
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <p>CREATE COLORS</p>
                         <input
-                            onChange={(e) =>
-                                setSubHeading({ ...subHeading, subHeadingName: e.target.value })
-                            }
-                            value={subHeading?.subHeadingName}
+                            onChange={(e) => setColor({ ...color, colorName: e.target.value })}
+                            value={color?.colorName}
                         />
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label>INSERT IMAGE</label>
                         <FileBase
-                            onDone={(base64) => setSubHeading({ ...subHeading, subImage: base64 })}
+                            onDone={(base64) => setColor({ ...color, colorImage: base64 })}
                             type='file'
                             multiple={false}
                         />
@@ -111,10 +93,10 @@ function Createcolor() {
                         submit
                     </button>
                 </form>
-                {subHeadings.length === null ? (
+                {colors.length === null ? (
                     <div> no sub heading </div>
                 ) : (
-                    subHeadings.map((subH) => (
+                    colors.map((subH) => (
                         <div key={subH._id}>
                             <div
                                 style={{
@@ -132,13 +114,8 @@ function Createcolor() {
                                 <div>
                                     <div>
                                         {/* <p> {mainH._id}</p> */}
-                                        <p>Main Heading</p>
-                                        <p>{subH.mainHeadingName}</p>
-                                    </div>
-                                    <div>
-                                        {/* <p> {mainH._id}</p> */}
-                                        <p>Sub Heading</p>
-                                        <p>{subH.subHeadingName}</p>
+                                        <p>Color</p>
+                                        <p>{subH.colorName}</p>
                                     </div>
                                 </div>
                                 <div>
@@ -147,7 +124,7 @@ function Createcolor() {
                                     <p>
                                         <img
                                             className='imgsubheading'
-                                            src={subH.subImage}
+                                            src={subH.colorImage}
                                             alt='ajao'
                                         />
                                     </p>
@@ -155,7 +132,7 @@ function Createcolor() {
 
                                 <div>
                                     <button
-                                        onClick={() => dispatch(deleteSubHeading(subH._id))}
+                                        onClick={() => dispatch(deleteColor(subH._id))}
                                         // onClick={() => console.log('click')}
                                         className='btn'
                                     >

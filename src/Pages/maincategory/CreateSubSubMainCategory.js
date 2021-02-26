@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { convertSlugToUrl } from 'resources/utilities';
-
-import FileBase from 'react-file-base64';
-import {
-    getMainHeading,
-    createMainHeading,
-    updateMainHeading,
-    deleteMainHeading
-} from '../../actions/mainHeading';
+import { getMainHeading } from '../../actions/mainHeading';
 import './Createsubmain.css';
-import { createSubHeading, getSubHeading, updateSubHeading } from '../../actions/subHeading';
+import { getSubHeading } from '../../actions/subHeading';
 import {
     createSubSubHeading,
     getSubSubHeading,
@@ -24,9 +16,6 @@ function CreateSubSubMainCategory() {
         subHeadingName: '',
         subSubHeadingName: ''
     });
-    // const [mainHeading, setMainHeading] = useState({
-    //     mainHeadingName: ''
-    // });
 
     const dispatch = useDispatch();
 
@@ -35,8 +24,6 @@ function CreateSubSubMainCategory() {
     const subSubHeadings = useSelector((state) => state.subSubHeading);
     const subHeadings = useSelector((state) => state.subHeading);
     const mainHeadings = useSelector((state) => state.mainHeading);
-    // const currentMainHeadingId = useSelector((state) => state.currentMainHeadingId);
-
     const currentSubSubHeading = useSelector((state) =>
         currentId ? state.subSubHeading.find((h) => h._id === currentId) : null
     );
