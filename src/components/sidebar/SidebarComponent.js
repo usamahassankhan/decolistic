@@ -89,6 +89,13 @@ function SidebarComponent() {
                     icon={IconContacts}
                     onClick={() => onClick(SLUGS.ProductComponents)}
                 />
+                <MenuItem
+                    id={SLUGS.ProductComponents}
+                    title='Colors'
+                    level={2}
+                    icon={IconContacts}
+                    onClick={() => onClick(SLUGS.CreateColors)}
+                />
                 {/* </MenuItem> */}
             </MenuItem>
 
