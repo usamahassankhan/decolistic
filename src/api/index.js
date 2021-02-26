@@ -33,5 +33,10 @@ export const updateSubSubHeading = (id, updatedSubSubHeading) =>
     API.patch(`/subsubheading/${id}`, updatedSubSubHeading);
 export const deleteSubSubHeading = (id) => API.delete(`/subsubheading/${id}`);
 
+export const fetchColor = () => API.get('/color/getall');
+export const createColor = (newColor) => API.post('/color', newColor);
+export const updateColor = (id, updatedColor) => API.patch(`/color/${id}`, updatedColor);
+export const deleteColor = (id) => API.delete(`/color/${id}`);
+
 export const signIn = (formData) => API.post('/user/signin', formData);
 export const signUp = (formData) => API.post('/user/signup', formData);
