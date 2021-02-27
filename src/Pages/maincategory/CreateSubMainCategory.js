@@ -103,6 +103,7 @@ function CreateSubMainCategory() {
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label>INSERT IMAGE</label>
+
                         <FileBase
                             onDone={(base64) => setSubHeading({ ...subHeading, subImage: base64 })}
                             type='file'

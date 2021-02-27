@@ -18,3 +18,14 @@
     background-color: green;
     color: white;
 }
+.divmap {
+    /* background-color: black; */
+    /* color: white; */
+}
+.divinner {
+    border: 1px solid white;
+    padding-top: 10px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+}
