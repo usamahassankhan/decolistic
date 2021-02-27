@@ -1,10 +1,10 @@
 import * as api from '../api';
 import Constants from '../Constants';
 //action creators
-export const getSubHeading = () => async (dispatch) => {
+export const getSubHeading = (skip) => async (dispatch) => {
     try {
         console.log('in');
-        const { data } = await api.fetchSubHeading();
+        const { data } = await api.fetchSubHeading(skip);
         console.log(data);
         dispatch({ type: 'SUB_FETCH_ALL', payload: data });
     } catch (error) {

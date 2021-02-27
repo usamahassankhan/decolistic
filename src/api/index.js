@@ -14,7 +14,7 @@ export const updateMainHeading = (id, updatedMainHeading) =>
 export const deleteMainHeading = (id) => API.delete(`/mainheading/${id}`);
 
 //subheading
-export const fetchSubHeading = () => API.get('/subheading/getall');
+export const fetchSubHeading = (skip) => API.get(`/subheading/getall?skip=${skip}`);
 export const createSubHeading = (newSubHeading) => API.post('/subheading', newSubHeading);
 export const updateSubHeading = (id, updatedSubHeading) =>
     API.patch(`/subheading/${id}`, updatedSubHeading);
