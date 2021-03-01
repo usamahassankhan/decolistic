@@ -14,7 +14,10 @@ export const updateMainHeading = (id, updatedMainHeading) =>
 export const deleteMainHeading = (id) => API.delete(`/mainheading/${id}`);
 
 //subheading
-export const fetchSubHeading = (skip) => API.get(`/subheading/getall?skip=${skip}`);
+// export const fetchSubHeading = (skip) => API.get(`/subheading/getall?skip=${skip}`);
+export const fetchSubHeading = (page, limit) => API.get(`/subheading/getall`);
+//?page=${page}%limit=${limit}`);
+
 export const createSubHeading = (newSubHeading) => API.post('/subheading', newSubHeading);
 export const updateSubHeading = (id, updatedSubHeading) =>
     API.patch(`/subheading/${id}`, updatedSubHeading);

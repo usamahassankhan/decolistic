@@ -76,6 +76,7 @@ function CreateSubSubMainCategory() {
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label>Main Category</label>
                         <select
+                            required
                             onChange={(e) =>
                                 setSubSubHeading({
                                     ...subSubHeading,
@@ -105,7 +106,9 @@ function CreateSubSubMainCategory() {
                                     subHeadingName: e.target.value
                                 })
                             }
+                            required
                         >
+                            <option></option>
                             {subHeadings.map((a) =>
                                 a.mainHeadingName === subSubHeading.mainHeadingName ? (
                                     <option>{a.subHeadingName}</option>

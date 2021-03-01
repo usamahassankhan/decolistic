@@ -6,7 +6,7 @@ export const getProducts = () => async (dispatch) => {
         console.log('in');
         const { data } = await api.fetchProducts();
         console.log(data);
-        dispatch({ type: 'FETCH_ALL', payload: data });
+        dispatch({ type: 'PRODUCT_FETCH_ALL', payload: data });
     } catch (error) {
         console.log(error);
     }
@@ -14,7 +14,7 @@ export const getProducts = () => async (dispatch) => {
 export const createProducts = (products) => async (dispatch) => {
     try {
         const { data } = await api.createProducts(products);
-        dispatch({ type: Constants.CREATE, payload: data });
+        dispatch({ type: 'PRODUCT_CREATE', payload: data });
     } catch (error) {
         console.log(error.message);
     }
@@ -22,7 +22,7 @@ export const createProducts = (products) => async (dispatch) => {
 export const updateProducts = (id, products) => async (dispatch) => {
     try {
         const { data } = await api.updateProducts(id, products);
-        dispatch({ type: 'UPDATE', payload: data });
+        dispatch({ type: 'PRODUCT_UPDATE', payload: data });
     } catch (error) {
         console.log(error);
     }
@@ -30,7 +30,7 @@ export const updateProducts = (id, products) => async (dispatch) => {
 export const deleteProducts = (id) => async (dispatch) => {
     try {
         await api.deleteProducts(id);
-        dispatch({ type: 'DELETE', payload: id });
+        dispatch({ type: 'PRODUCT_DELETE', payload: id });
     } catch (error) {
         console.log(error);
     }
