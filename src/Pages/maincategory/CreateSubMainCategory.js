@@ -75,7 +75,7 @@ function CreateSubMainCategory() {
                 <p>CREATE SUB CATEGORY</p>
             </div>
             <div className='mainsubpara'>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={() => handleSubmit}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label>Main Category</label>
                         <select

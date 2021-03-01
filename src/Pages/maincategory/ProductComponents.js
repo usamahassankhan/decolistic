@@ -22,13 +22,11 @@ function ProductComponents() {
     const [products, setProducts] = useState({
         productName: ' ',
         productPrice: ' ',
-        productImage: '',
+        productImage: [],
         productColor: '',
-        productModal: ''
+        productModal: '',
+        productImage: ''
     });
-    console.log('products', products);
-    console.log('img', colorimage);
-    console.log('show', show);
     const hideshow = () => {
         setShow((old) => {
             return [...old, colorimage];
@@ -36,16 +34,33 @@ function ProductComponents() {
         // setShow(!show);
         // setColorimage({ img1: [base64], color: e.target.value });
     };
+    const [finalstate, setFinalstate] = useState([]);
+    const submitForm = (e) => {
+        const newstate = {
+            products: products,
+            colorimage: show,
+            subSubHeading: subSubHeading
+        };
+        setFinalstate([...finalstate, newstate]);
+
+        e.preventDefault();
+    };
+    console.log('aja', finalstate);
+    console.log('mainheading', subSubHeading.mainHeadingName);
+    console.log('subheading', subSubHeading.subHeadingName);
+    console.log('subSubHeadingName', subSubHeading.subSubHeadingName);
+    console.log('products', products);
+    console.log('img', colorimage);
+    console.log('show', show);
 
     return (
         <>
             <h1>Create Products</h1>
             <div className='productmain'>
-                <form>
+                <form onSubmit={submitForm}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label>Main Category</label>
                         <select
-                            required
                             onChange={(e) =>
                                 setSubSubHeading({
                                     ...subSubHeading,
@@ -75,7 +90,6 @@ function ProductComponents() {
                                     subHeadingName: e.target.value
                                 })
                             }
-                            required
                         >
                             <option></option>
                             {subHeadings.map((a) =>
@@ -93,13 +107,12 @@ function ProductComponents() {
                             }
                         /> */}
                         <select
-                            // onChange={(e) =>
-                            //     setSubSubHeading({
-                            //         ...subSubHeading,
-                            //         subSubHeadingName: e.target.value
-                            //     })
-                            // }
-                            required
+                            onChange={(e) =>
+                                setSubSubHeading({
+                                    ...subSubHeading,
+                                    subSubHeadingName: e.target.value
+                                })
+                            }
                         >
                             {console.log('ssb', subSubHeadings)}
                             <option></option>
@@ -149,17 +162,25 @@ function ProductComponents() {
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label for='cars'>Choose Main image Colors:</label>
                         <select
-                            onChange={
-                                (e) => {
-                                    let value = Array.from(
-                                        e.target.selectedOptions,
-                                        (option) => option.value
-                                    );
-                                    // this.setState({ values: value });
-                                    setProducts({ ...products, productColor: value });
-                                }
-                                // setProducts({ ...products, productColor: [e.target.selectedOptions] })
+                            onChange={(e) =>
+                                setProducts({ ...products, productColor: e.target.value })
                             }
+                        >
+                            <option></option>
+                            {colors.map((a) => (
+                                <option>{a.colorName}</option>
+                            ))}
+                            {console.log('mainclr', colors)}
+                        </select>
+                        {/* <select
+                            onChange={(e) => {
+                                let value = Array.from(
+                                    e.target.selectedOptions,
+                                    (option) => option.value
+                                );
+
+                                setProducts({ ...products, productColor: value });
+                            }}
                             name='productColor'
                             id='productColor'
                             multiple
@@ -168,7 +189,7 @@ function ProductComponents() {
                             <option value='saab'>Saab</option>
                             <option value='opel'>Opel</option>
                             <option value='audi'>Audi</option>
-                        </select>
+                        </select> */}
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label>Choose Main Image </label>
@@ -180,11 +201,125 @@ function ProductComponents() {
                             multiple
                         /> */}
                         <div>
-                            <MultiImageInput
+                            {/* <MultiImageInput
+                                // images={setImages}
+                                // setImages={setImages}
                                 images={images}
-                                setImages={setImages}
+                                onChange={(e) => setImages(e.target.value)}
                                 max='7'
                                 className='multi'
+                            /> */}
+                            <FileBase
+                                onDone={(base64) => {
+                                    const tempArray = [...products.productImage];
+                                    tempArray.push(base64);
+                                    setProducts({
+                                        ...products,
+                                        ...products.productImage,
+                                        productImage: tempArray
+                                    });
+                                }}
+                                // onDone={(base64) => {
+                                //     hideshow(base64);
+                                // }}
+                                type='file'
+                                multiple={true}
+                            />
+                            <FileBase
+                                onDone={(base64) => {
+                                    const tempArray = [...products.productImage];
+                                    tempArray.push(base64);
+                                    setProducts({
+                                        ...products,
+                                        ...products.productImage,
+                                        productImage: tempArray
+                                    });
+                                }}
+                                // onDone={(base64) => {
+                                //     hideshow(base64);
+                                // }}
+                                type='file'
+                                multiple={true}
+                            />
+                            <FileBase
+                                onDone={(base64) => {
+                                    const tempArray = [...products.productImage];
+                                    tempArray.push(base64);
+                                    setProducts({
+                                        ...products,
+                                        ...products.productImage,
+                                        productImage: tempArray
+                                    });
+                                }}
+                                // onDone={(base64) => {
+                                //     hideshow(base64);
+                                // }}
+                                type='file'
+                                multiple={true}
+                            />
+                            <FileBase
+                                onDone={(base64) => {
+                                    const tempArray = [...products.productImage];
+                                    tempArray.push(base64);
+                                    setProducts({
+                                        ...products,
+                                        ...products.productImage,
+                                        productImage: tempArray
+                                    });
+                                }}
+                                // onDone={(base64) => {
+                                //     hideshow(base64);
+                                // }}
+                                type='file'
+                                multiple={true}
+                            />
+                            <FileBase
+                                onDone={(base64) => {
+                                    const tempArray = [...products.productImage];
+                                    tempArray.push(base64);
+                                    setProducts({
+                                        ...products,
+                                        ...products.productImage,
+                                        productImage: tempArray
+                                    });
+                                }}
+                                // onDone={(base64) => {
+                                //     hideshow(base64);
+                                // }}
+                                type='file'
+                                multiple={true}
+                            />
+                            <FileBase
+                                onDone={(base64) => {
+                                    const tempArray = [...products.productImage];
+                                    tempArray.push(base64);
+                                    setProducts({
+                                        ...products,
+                                        ...products.productImage,
+                                        productImage: tempArray
+                                    });
+                                }}
+                                // onDone={(base64) => {
+                                //     hideshow(base64);
+                                // }}
+                                type='file'
+                                multiple={true}
+                            />
+                            <FileBase
+                                onDone={(base64) => {
+                                    const tempArray = [...products.productImage];
+                                    tempArray.push(base64);
+                                    setProducts({
+                                        ...products,
+                                        ...products.productImage,
+                                        productImage: tempArray
+                                    });
+                                }}
+                                // onDone={(base64) => {
+                                //     hideshow(base64);
+                                // }}
+                                type='file'
+                                multiple={true}
                             />
                         </div>
                     </div>
@@ -218,12 +353,7 @@ function ProductComponents() {
                             <label>INSERT IMAGE</label>
 
                             <FileBase
-                                onDone={(base64) =>
-                                    setColorimage({ ...colorimage, img1: [base64] })
-                                }
-                                // onDone={(base64) => {
-                                //     hideshow(base64);
-                                // }}
+                                onDone={(base64) => setColorimage({ ...colorimage, img1: base64 })}
                                 type='file'
                                 multiple={false}
                             />
@@ -256,13 +386,138 @@ function ProductComponents() {
                         {show.map((a) => (
                             <div className='divinner'>
                                 <p>COLOR:{a.color}</p>
-                                <p>IMAGE NAME:{a.img1[0].name}</p>
+                                <p>IMAGE NAME:{a.img1?.name}</p>
                             </div>
                         ))}
                     </div>
 
                     <button className='btn3'>Submit</button>
                 </form>
+            </div>
+
+            <div className='cardproduct'>
+                <div
+                    style={{
+                        marginTop: '20px',
+                        // border: '2px solid black',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        backgroundColor: 'white',
+                        boxShadow: '0px 0px 2px 2px gray',
+                        padding: '30px 20px',
+                        borderRadius: '20px',
+                        alignItems: 'center'
+                    }}
+                >
+                    <div
+                        style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}
+                    >
+                        <div>
+                            {/* <p> {mainH._id}</p> */}
+                            <p>
+                                <b>Main Heading </b>
+                            </p>
+                            <p></p>
+                        </div>
+                        <div>
+                            {/* <p> {mainH._id}</p> */}
+                            <p>
+                                <b>Sub Heading </b>
+                            </p>
+                            <p></p>
+                        </div>
+                        <div>
+                            {/* <p> {mainH._id}</p> */}
+                            <p>
+                                <b>Sub Sub Heading </b>
+                            </p>
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div className='productheading'>
+                        <div>
+                            {/* <p> {mainH._id}</p> */}
+                            <p>
+                                <b>Product Name </b>
+                            </p>
+                            <p></p>
+                        </div>
+                        <div>
+                            {/* <p> {mainH._id}</p> */}
+                            <p>
+                                <b>Product Price </b>
+                            </p>
+                            <p></p>
+                        </div>
+                        <div>
+                            {/* <p> {mainH._id}</p> */}
+                            <p>
+                                <b>Product Modal no </b>
+                            </p>
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div className='mainimgheading'>
+                        <div>
+                            {/* <p> {mainH._id}</p> */}
+                            <p>
+                                <b>Main Image</b>
+                            </p>
+                            <p></p>
+                        </div>
+
+                        <div>
+                            {/* <p> {mainH._id}</p> */}
+                            <p>
+                                <b>Main Color </b>
+                            </p>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div className='subimgheading'>
+                        <div>
+                            {/* <p> {mainH._id}</p> */}
+                            <p>
+                                <b>Image</b>
+                            </p>
+                            <p></p>
+                        </div>
+
+                        <div>
+                            {/* <p> {mainH._id}</p> */}
+                            <p>
+                                <b>Color </b>
+                            </p>
+                            <p></p>
+                        </div>
+                    </div>
+                    {/* <div>
+                        <p> {mainH._id}</p>
+                        <p>Image</p>
+                        <p>
+                            <img className='imgsubheading' src={subH.subImage} alt='img' />
+                        </p>
+                    </div> */}
+
+                    <div>
+                        <button
+                            // onClick={() => dispatch(deleteSubHeading(subH._id))}
+                            // onClick={() => console.log('click')}
+                            className='btn'
+                        >
+                            DELETE
+                        </button>
+                        <button
+                            // onClick={() => setCurrentId(subH._id)}
+                            className='btn1'
+                        >
+                            UPDATE
+                        </button>
+                    </div>
+                </div>
             </div>
         </>
     );
