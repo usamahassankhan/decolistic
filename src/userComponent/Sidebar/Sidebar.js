@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import './Sidebar.css';
+
+import { useDispatch, useSelector } from 'react-redux';
 // import { BsThreeDotsVertical } from 'react-icons/bs';
 import { Link, NavLink } from 'react-router-dom';
 import { Constants } from '../../Constants';
+import { getMainHeading } from '../../actions/mainHeading.js';
+import { getOnlySubHeading } from '../../actions/subHeading.js';
+import { getSubSubHeading } from '../../actions/subSubHeading.js';
+import { connect } from 'react-redux';
+
 class Sidebar extends Component {
     constructor(props) {
         super(props);
@@ -17,6 +24,9 @@ class Sidebar extends Component {
             $('.parent > div.menu').not($(this).siblings()).hide();
             $(this).siblings('div.menu').slideToggle();
         });
+        this.props.getMainHeading();
+        this.props.getOnlySubHeading();
+        this.props.getSubSubHeading();
     }
     changer = () => {
         this.props.toggler();
@@ -28,8 +38,30 @@ class Sidebar extends Component {
     }
 
     render() {
+        const { mainHeadings } = this.props.mainHeadings;
+        const { subHeadings } = this.props.subHeadings;
+        const { subSubHeadings } = this.props.subSubHeadings;
+        console.log('main heading' + this.props.mainHeadings[0].mainHeadingName);
         return (
             <>
+                <div className='mainsidebar'>
+                    <div className={this.props.sidebar ? 'side actives' : 'side'}>
+                        {this.props.mainHeadings?.map((mainH) => (
+                            <div className={'parent'}>
+                                <NavLink
+                                    to={`/${mainH.mainHeadingName}`}
+                                    activeStyle={{
+                                        borderBottom: '1px solid gray',
+                                        padding: '0px',
+                                        color: 'black'
+                                    }}
+                                >
+                                    {mainH.mainHeadingName}
+                                </NavLink>
+                            </div>
+                        ))}
+                    </div>
+                </div>
                 {/* {this.props.sidebar && ( */}
                 <div className='mainsidebar'>
                     <div className={this.props.sidebar ? 'side actives' : 'side'}>
@@ -133,4 +165,14 @@ class Sidebar extends Component {
         );
     }
 }
-export default Sidebar;
+const mapDispatchToProps = {
+    getMainHeading,
+    getOnlySubHeading,
+    getSubSubHeading
+};
+const mapStateToProps = (state) => ({
+    mainHeadings: state.mainHeading,
+    subHeadings: state.subHeadingOnly,
+    subSubHeadings: state.subSubHeading
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
