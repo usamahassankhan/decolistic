@@ -11,6 +11,17 @@ export const getSubHeading = (skip) => async (dispatch) => {
         console.log(error);
     }
 };
+export const getOnlySubHeading = () => async (dispatch) => {
+    try {
+        console.log('in');
+        const { data } = await api.fetchOnlySubHeading();
+        console.log(data);
+        dispatch({ type: 'SUB_FETCH_ONLY_ALL', payload: data });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export const createSubHeading = (subHeading) => async (dispatch) => {
     try {
         const { data } = await api.createSubHeading(subHeading);
