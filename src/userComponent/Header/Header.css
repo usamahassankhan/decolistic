@@ -1,101 +1,102 @@
 * {
-  /* padding-top: 5px;
+    /* padding-top: 5px;
   padding-left: 8px;
   padding-right: 8px; */
 }
 .wrapperHeader {
-  width: 100%;
+    width: 100%;
 }
 .head {
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-bottom: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    justify-content: space-between;
 }
 
 .carticon,
 .locationicon {
-  width: 3em;
-  height: 2em;
+    width: 3em;
+    height: 2em;
 }
 .righticon {
-  display: flex;
-  padding: 10px;
-  flex-direction: row;
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
 }
 .searchHeader {
-  /* margin-left: 5%; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+    /* margin-left: 5%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
-  display: flex;
-  border: none;
+    display: flex;
+    border: none;
 }
 .innerSearchText {
-  border-bottom: 2px solid black;
+    border-bottom: 2px solid black;
 }
 .input1 {
-  border: none;
-  outline-style: none;
-  border-bottom: 2px solid black;
+    border: none;
+    outline-style: none;
+    border-bottom: 2px solid black;
 }
 .input1:hover {
-  border: none;
-  border-bottom: 3px solid lightblue;
-  transition: 0.5s;
+    border: none;
+    border-bottom: 3px solid lightblue;
+    transition: 0.5s;
 }
 .input1:active {
-  color: red;
+    color: red;
 }
 .drawericon {
-  width: 2em;
-  height: 2em;
-  visibility: visible;
-}
-@media screen and (max-width: 1000px) {
-  .drawericon {
     width: 2em;
     height: 2em;
     visibility: visible;
-  }
+}
+@media screen and (max-width: 1000px) {
+    .drawericon {
+        width: 2em;
+        height: 2em;
+        visibility: visible;
+    }
 }
 @media screen and (max-width: 750px) {
-  .input1 {
-    width: 60%;
-  }
+    .input1 {
+        width: 60%;
+    }
 }
 .sidebar {
-  display: none;
+    display: none;
 }
 
 @media screen and (max-width: 750px) {
-  .sidebar {
-    display: inline;
-  }
+    .sidebar {
+        display: inline;
+    }
 }
 
 hr {
-  size: 5px;
+    size: 5px;
 }
 .icon {
-  border: none;
-  margin-left: 5px;
+    border: none;
+    margin-left: 5px;
 }
 .logo {
-  width: 100%;
+    width: 100%;
 }
 .logoimg {
-  width: 100px;
-  height: 60px;
+    width: 100px;
+    height: 60px;
 }
 .mainsearchdiv {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
