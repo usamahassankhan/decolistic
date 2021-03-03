@@ -6,7 +6,7 @@ export default {
     CreateSubSubMainCategory: '/maincategory/subsub',
     CreateColors: '/maincategory/CreateColors',
     ProductComponents: '/maincategory/productcomponents',
-
+    productColor: '/maincategory/productimage',
     overviewThree: '/overview/three',
     tickets: '/tickets',
     ideas: '/ideas',

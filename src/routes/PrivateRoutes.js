@@ -8,6 +8,7 @@ import CreateSubSubMainCategory from 'Pages/maincategory/CreateSubSubMainCategor
 import ViewMainCategory from 'Pages/maincategory/CreateSubSubMainCategory';
 import ProductComponents from 'Pages/maincategory/ProductComponents';
 import CreateColors from 'Pages/maincategory/Createcolor';
+import CreateProductColor from 'Pages/maincategory/ProductColor';
 const DashboardComponent = lazy(() => import('./dashboard'));
 
 function PrivateRoutes() {
@@ -24,6 +25,7 @@ function PrivateRoutes() {
                     path={SLUGS.CreateSubSubMainCategory}
                     component={CreateSubSubMainCategory}
                 />
+                <Route exact path={SLUGS.productColor} component={CreateProductColor} />
                 <Route exact path={SLUGS.overview} render={() => <div>overview</div>} />
                 <Route exact path={SLUGS.tickets} render={() => <div>tickets</div>} />
                 <Route exact path={SLUGS.ideasTwo} render={() => <div>ideasTwo</div>} />

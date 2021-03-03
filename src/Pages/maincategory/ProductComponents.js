@@ -48,36 +48,45 @@ function ProductComponents() {
 
     //dispatching all the get reducers required for the page
     useEffect(() => {
-        dispatch(getMainHeading);
-        dispatch(getSubHeading);
-        dispatch(getSubSubHeading);
-        dispatch(getColor);
-        dispatch(getProducts);
+        dispatch(getMainHeading());
+        dispatch(getSubHeading());
+        dispatch(getSubSubHeading());
+        dispatch(getColor());
+        dispatch(getProducts());
     }, [dispatch, currentId]);
 
     useEffect(() => {
         if (currentProduct) setProduct(currentProduct);
     }, [currentId]);
 
-    //used to add a color and image
-    const [show, setShow] = useState([]);
-
-    const [colorimage, setColorimage] = useState({ img1: [], color: '' });
-
     //combined all the smaller states into a single state
 
     const submitForm = (e) => {
         e.preventDefault();
-
-        dispatch(createProducts(product));
-    };
-
-    //function to control the add color and image
-    const hideshow = () => {
-        setShow((old) => {
-            return [...old, colorimage];
+        if (currentId === null) {
+            dispatch(createProducts(product));
+        } else {
+            dispatch(updateProducts(currentId, product));
+        }
+        //need to add if state of current id
+        setProduct({
+            mainHeadingName: '',
+            subHeadingName: '',
+            subSubHeadingName: '',
+            productName: '',
+            productPrice: '',
+            productModel: '',
+            productColor: '',
+            images: ''
         });
+        setCurrentId(null);
     };
+    function dispatchingABC() {
+        if (currentProduct) setProduct(currentProduct);
+    }
+    useEffect(() => {
+        dispatchingABC();
+    }, []);
 
     //used for multiple image selection
     const fileSelectedHandler = (e) => {
@@ -116,7 +125,6 @@ function ProductComponents() {
                                     subHeadingName: e.target.value
                                 })
                             }
-                            required
                         >
                             <option></option>
                             {subHeadings.map((a) =>
@@ -208,40 +216,6 @@ function ProductComponents() {
                             />
                         </div>
                     </div>
-                    <div onClick={() => hideshow()}>➕ Add Color And Image</div>
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            backgroundColor: 'black',
-                            color: 'white',
-                            paddingBottom: '10px'
-                        }}
-                    >
-                        <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <label>INSERT IMAGE</label>
-
-                            <FileBase
-                                onDone={(base64) => setColorimage({ ...colorimage, img1: base64 })}
-                                type='file'
-                                multiple={false}
-                            />
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <label>Color</label>
-                            <select
-                                onChange={(e) =>
-                                    setColorimage({ ...colorimage, color: e.target.value })
-                                }
-                            >
-                                <option></option>
-                                {color.map((a) => (
-                                    <option>{a.colorName}</option>
-                                ))}
-                                {console.log('clr', color)}
-                            </select>
-                        </div>
-                    </div>
                     {/* <div className='divmap'>
                         {show.map((a) => (
                             <div className='divinner'>
@@ -253,131 +227,127 @@ function ProductComponents() {
                     <button className='btn3'>Submit</button>
                 </form>
             </div>
-
-            <div className='cardproduct'>
-                <div
-                    style={{
-                        marginTop: '20px',
-                        // border: '2px solid black',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        backgroundColor: 'white',
-                        boxShadow: '0px 0px 2px 2px gray',
-                        padding: '30px 20px',
-                        borderRadius: '20px',
-                        alignItems: 'center'
-                    }}
-                >
-                    <div
-                        style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}
-                    >
-                        <div>
-                            {/* <p> {mainH._id}</p> */}
-                            <p>
-                                <b>Main Heading </b>
-                            </p>
-                            <p></p>
-                        </div>
-                        <div>
-                            {/* <p> {mainH._id}</p> */}
-                            <p>
-                                <b>Sub Heading </b>
-                            </p>
-                            <p></p>
-                        </div>
-                        <div>
-                            {/* <p> {mainH._id}</p> */}
-                            <p>
-                                <b>Sub Sub Heading </b>
-                            </p>
-                            <p></p>
-                        </div>
-                    </div>
-
-                    <div className='productheading'>
-                        <div>
-                            {/* <p> {mainH._id}</p> */}
-                            <p>
-                                <b>Product Name </b>
-                            </p>
-                            <p></p>
-                        </div>
-                        <div>
-                            {/* <p> {mainH._id}</p> */}
-                            <p>
-                                <b>Product Price </b>
-                            </p>
-                            <p></p>
-                        </div>
-                        <div>
-                            {/* <p> {mainH._id}</p> */}
-                            <p>
-                                <b>Product Modal no </b>
-                            </p>
-                            <p></p>
-                        </div>
-                    </div>
-
-                    <div className='mainimgheading'>
-                        <div>
-                            {/* <p> {mainH._id}</p> */}
-                            <p>
-                                <b>Main Image</b>
-                            </p>
-                            <p></p>
-                        </div>
-
-                        <div>
-                            {/* <p> {mainH._id}</p> */}
-                            <p>
-                                <b>Main Color </b>
-                            </p>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div className='subimgheading'>
-                        <div>
-                            {/* <p> {mainH._id}</p> */}
-                            <p>
-                                <b>Image</b>
-                            </p>
-                            <p></p>
-                        </div>
-
-                        <div>
-                            {/* <p> {mainH._id}</p> */}
-                            <p>
-                                <b>Color </b>
-                            </p>
-                            <p></p>
-                        </div>
-                    </div>
-                    {/* <div>
-                        <p> {mainH._id}</p>
-                        <p>Image</p>
-                        <p>
-                            <img className='imgsubheading' src={subH.subImage} alt='img' />
-                        </p>
-                    </div> */}
-
-                    <div>
-                        <button
-                            // onClick={() => dispatch(deleteSubHeading(subH._id))}
-                            // onClick={() => console.log('click')}
-                            className='btn'
+            {products.length === null ? (
+                <div> no main heading </div>
+            ) : (
+                products.map((mainH) => (
+                    <div className='cardproduct'>
+                        <div
+                            style={{
+                                marginTop: '20px',
+                                // border: '2px solid black',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                                backgroundColor: 'white',
+                                boxShadow: '0px 0px 2px 2px gray',
+                                padding: '30px 20px',
+                                borderRadius: '20px',
+                                alignItems: 'center'
+                            }}
                         >
-                            DELETE
-                        </button>
-                        <button
-                            // onClick={() => setCurrentId(subH._id)}
-                            className='btn1'
-                        >
-                            UPDATE
-                        </button>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    width: '100%'
+                                }}
+                            >
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>
+                                        <b>Main Heading </b>
+                                        <p>{mainH.mainHeadingName} </p>
+                                    </p>
+                                    <p></p>
+                                </div>
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>
+                                        <b>Sub Heading </b>
+                                        <p>{mainH.subHeadingName}</p>
+                                    </p>
+                                    <p></p>
+                                </div>
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>
+                                        <b>Sub Sub Heading </b>
+                                        <p>{mainH.subSubHeadingName}</p>
+                                    </p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div className='productheading'>
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>
+                                        <b>Product Name </b>
+                                        <p> {mainH.productName} </p>
+                                    </p>
+                                    <p></p>
+                                </div>
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>
+                                        <b>Product Price </b>
+                                        <p>{mainH.productPrice}</p>
+                                    </p>
+                                    <p></p>
+                                </div>
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>
+                                        <b>Product Modal no </b>
+                                        <p> {mainH.productModel} </p>
+                                    </p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div className='mainimgheading'>
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>
+                                        <b>Main Image</b>
+                                        {mainH.images.map((subH) => (
+                                            <img
+                                                width='100px'
+                                                height='100px'
+                                                src={subH}
+                                                alt='mainimage'
+                                            />
+                                        ))}
+                                    </p>
+                                    <p></p>
+                                </div>
+
+                                <div>
+                                    {/* <p> {mainH._id}</p> */}
+                                    <p>
+                                        <b>Main Color </b>
+                                        <p> {mainH.productColor} </p>
+                                    </p>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div>
+                                <button
+                                    onClick={() => dispatch(deleteProducts(mainH._id))}
+                                    // onClick={() => console.log('click')}
+                                    className='btn'
+                                >
+                                    DELETE
+                                </button>
+                                <button onClick={() => setCurrentId(mainH._id)} className='btn1'>
+                                    UPDATE
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                ))
+            )}
         </>
     );
 }
