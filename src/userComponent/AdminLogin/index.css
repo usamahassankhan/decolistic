@@ -1,0 +1,19 @@
+.loginpage {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    flex-direction: column;
+    width: 500px;
+    padding: 100px 40px;
+    border-radius: 40px;
+    margin-left: 300px;
+}
+.login1row {
+    padding: 30px;
+    justify-content: space-between;
+}
+.adminloginbtn {
+    width: 100px;
+    margin: auto;
+}

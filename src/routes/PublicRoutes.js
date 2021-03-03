@@ -17,7 +17,7 @@ import Help from '../userComponent/CustomerServices/Help/Help';
 import Oversized from '../userComponent/CustomerServices/Oversized/Oversized';
 import Context from '../userComponent/Usecontext/Context';
 import Sidebarcustomerservices from '../userComponent/CustomerServices/Sidebarcustomerservices/Sidebarcustomerservices';
-
+import LoginPage from './../userComponent/AdminLogin/AdminLogin';
 function App() {
     const [Tsidebar, ToggleSide] = useState(false);
     const sidebarr = () => {
@@ -53,6 +53,7 @@ function App() {
           <Navbar /> */}
                         <Switch>
                             <Route path='/' exact component={Home} />
+                            <Route path='/admin' exact component={LoginPage} />
                             <Route path='/product' exact component={ProductScreenComponent} />
                             <Route path='/customer' exact component={CustomerServices} />
                             {/* <Route path="/customer/id:" exact component={Overviewcustomer} /> */}

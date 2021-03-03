@@ -56,7 +56,6 @@ class Header extends Component {
                         </div>
                     </div>
                     <NavLink className='logo' to='/'>
-                        {/* <BsBoundingBoxCircles /> */}
                         <img className='logoimg' src={cb2logo} alt='cb2Logo' />
                     </NavLink>
                     <div classname='righticon' style={{ display: 'flex' }}>
