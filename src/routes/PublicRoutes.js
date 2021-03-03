@@ -54,6 +54,13 @@ function App() {
                         <Switch>
                             <Route path='/' exact component={Home} />
                             <Route path='/admin' exact component={LoginPage} />
+                            <Route
+                                path='/customer'
+                                exact
+                                render={(props) => (
+                                    <CustomerServices {...props} sidebar={Tsidebar} />
+                                )}
+                            />
                             <Route path='/product' exact component={ProductScreenComponent} />
                             <Route path='/customer' exact component={CustomerServices} />
                             {/* <Route path="/customer/id:" exact component={Overviewcustomer} /> */}

@@ -57,7 +57,7 @@
     }
     .Border1 {
         /* position: absolute; */
-        top: 0;
+        top: 50px;
         width: 70%;
         height: 30%;
         transform: translateX(0%);
