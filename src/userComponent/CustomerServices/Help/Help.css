@@ -1,0 +1,15 @@
+.dasa {
+  width: 1000px;
+}
+.card-header {
+  padding-bottom: 0px;
+}
+.iconandname {
+  display: flex;
+  justify-content: space-between;
+}
+.helpmain {
+  padding-bottom: 100px;
+  width: 70%;
+  margin-top: 4%;
+}

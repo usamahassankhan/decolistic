@@ -1,0 +1,28 @@
+.subHeading__wrapper {
+  margin-top: 60px;
+  margin-left: 100px;
+}
+.subHeading_routes {
+  text-align: start;
+  font-size: small;
+  color: #94938f;
+  margin: 0%;
+}
+.subHeading__heading > h2 {
+  text-align: start;
+  font-weight: 400;
+  margin: 0px;
+  padding: 0%;
+}
+
+.subHeading__images {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  margin-top: 0px;
+  font-weight: 500;
+  font-size: 28px;
+}
+
+@media screen and (max-width: 850px) {
+}

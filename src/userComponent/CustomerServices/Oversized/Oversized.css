@@ -1,0 +1,32 @@
+.oversized {
+  width: 100%;
+  margin-top: 4%;
+}
+.row1label {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.row1c {
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+}
+.row1cd {
+  display: flex;
+
+  flex-direction: column;
+}
+.row1c label {
+  font-size: 10px;
+  font-weight: bold;
+}
+.row1cd label {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.rowbutton {
+  background-color: black;
+  color: white;
+}

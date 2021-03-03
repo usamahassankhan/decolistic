@@ -1,0 +1,88 @@
+.App {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    height: 100%;
+}
+.responsive {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+}
+.slide {
+    /* border: 1px solid red; */
+    width: 138px;
+}
+.slide11 {
+    display: none;
+}
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+.Border1 {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    min-width: 20%;
+    transition: 0.5s ease-in;
+    /* margin-right: -100px; */
+    margin-top: -33px;
+}
+
+.border2 {
+    position: relative;
+    min-width: 79%;
+    overflow-wrap: break-word;
+}
+.pop {
+    display: flex;
+}
+@media screen and (max-width: 1000px) {
+    .pop {
+        position: relative;
+        /* max-width: 100%; */
+    }
+    .responsive {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .Border1 {
+        /* position: absolute; */
+        top: 0;
+        width: 70%;
+        height: 30%;
+        transform: translateX(0%);
+        background-color: white !important;
+    }
+    .active {
+        transform: translateX(-35%);
+        transition: 0.5s ease-in;
+    }
+    .border2 {
+        display: contents;
+        width: 90%;
+        margin: auto;
+    }
+    .sidebarr {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        background: white;
+    }
+}
+
+.App-link {
+    color: #61dafb;
+}
+.closed {
+    display: none;
+}

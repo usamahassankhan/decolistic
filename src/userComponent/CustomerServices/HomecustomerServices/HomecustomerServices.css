@@ -1,0 +1,9 @@
+.homecustomerservices {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+}
+.hco {
+  width: 70%;
+  margin-top: 4%;
+}

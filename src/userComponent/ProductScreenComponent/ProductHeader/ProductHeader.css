@@ -1,0 +1,99 @@
+.bodyBack {
+  margin: auto;
+}
+.product_routes {
+  text-align: start;
+  font-size: small;
+  color: #94938f;
+  margin: 0%;
+}
+
+.productTitle {
+  display: flex;
+  justify-content: space-between;
+}
+.leftProductTitle {
+}
+.rightProductTitle {
+}
+.rightBorder {
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.colorLine {
+  justify-content: flex-start;
+}
+.imageColorController {
+}
+.leftImages {
+  flex: 1;
+  align-self: flex-start;
+  justify-content: space-between;
+}
+.imageColorController > img {
+  width: 30px;
+}
+.textController {
+  align-self: center;
+}
+.seeColorBorder {
+  border: 2px grey solid;
+}
+.rightButtonContainer {
+  flex: 1;
+  justify-content: flex-end;
+}
+.button {
+  background-color: black;
+  width: 35%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 30;
+}
+/* .mainBody {
+  margin: 0 auto;
+  width: "80%";
+  padding: 0 100px;
+}
+h1 {
+  font-size: x-large;
+  font-weight: 400;
+}
+.topTitle {
+  display: flex;
+  flex-direction: row;
+  text-align: initial;
+}
+.rightTitle {
+  flex: 1;
+  text-align: end;
+}
+.leftTitle {
+  flex: 3;
+}
+.imageSizeController {
+  width: 40px;
+  height: 40px;
+}
+.imageSizeController2 {
+  width: 30px;
+  height: 30px;
+}
+.borderController {
+  display: "flex";
+  border: 2px solid grey;
+}
+.lastLine {
+  display: flex;
+}
+.buttonContainer {
+  background-color: "black";
+  justify-content: "flex-end";
+} */

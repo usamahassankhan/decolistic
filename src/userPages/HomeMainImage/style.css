@@ -1,0 +1,74 @@
+.back {
+    min-height: 800px;
+    max-width: 1640px;
+    /* height: 1335px; */
+    height: 100%;
+    background-image: url('../../assets/111420_home_top.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 0px;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 30px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+}
+
+.deal {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 50px;
+    flex-wrap: wrap;
+}
+.dealss {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 22px;
+    flex-wrap: wrap;
+}
+.prep {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 80px;
+    flex-wrap: wrap;
+    /* border: 1px solid red; */
+    margin-top: 10px;
+}
+.only {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 22px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.off {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 28px;
+    margin-top: 10px;
+}
+.ship {
+    display: flex;
+    flex-direction: column;
+    /* font-weight: 500; */
+    font-size: 18px;
+    margin-top: 10px;
+}
+.ref {
+    display: flex;
+    flex-direction: column;
+    /* font-weight: 500; */
+    font-size: 18px;
+    margin: 10px 0px;
+    margin-bottom: 30px;
+}
