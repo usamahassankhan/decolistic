@@ -8,6 +8,7 @@ import subSubHeading from './subSubHeading';
 import color from './color';
 import product from './products';
 import subHeadingOnly from './subHeadingOnly';
+import images from './image.js';
 export default combineReducers({
     posts,
     auth,
@@ -17,5 +18,6 @@ export default combineReducers({
     subSubHeading,
     color,
     product,
-    subHeadingOnly
+    subHeadingOnly,
+    images
 });

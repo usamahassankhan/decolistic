@@ -1,10 +1,19 @@
 import * as api from '../api';
 import Constants from '../Constants';
 //action creators
-export const getSubHeading = (skip) => async (dispatch) => {
+export const getSubHeading = (title) => async (dispatch) => {
     try {
-        console.log('in');
-        const { data } = await api.fetchSubHeading(skip);
+        console.log(title);
+        const { data } = await api.fetchSubHeading(title);
+        console.log(data);
+        dispatch({ type: 'SUB_FETCH_ALL', payload: data });
+    } catch (error) {
+        console.log(error);
+    }
+};
+export const getSubHeadingTitle = (title) => async (dispatch) => {
+    try {
+        const { data } = await api.fetchSubHeadingHandler(title);
         console.log(data);
         dispatch({ type: 'SUB_FETCH_ALL', payload: data });
     } catch (error) {
@@ -13,7 +22,6 @@ export const getSubHeading = (skip) => async (dispatch) => {
 };
 export const getOnlySubHeading = () => async (dispatch) => {
     try {
-        console.log('in');
         const { data } = await api.fetchOnlySubHeading();
         console.log(data);
         dispatch({ type: 'SUB_FETCH_ONLY_ALL', payload: data });

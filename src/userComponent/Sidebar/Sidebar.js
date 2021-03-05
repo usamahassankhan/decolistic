@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import './Sidebar.css';
 
-import { useDispatch, useSelector } from 'react-redux';
-// import { BsThreeDotsVertical } from 'react-icons/bs';
-import { Link, NavLink } from 'react-router-dom';
-import { Constants } from '../../Constants';
+import { NavLink } from 'react-router-dom';
 import { getMainHeading } from '../../actions/mainHeading.js';
 import { getOnlySubHeading } from '../../actions/subHeading.js';
 import { getSubSubHeading } from '../../actions/subSubHeading.js';
@@ -16,18 +13,28 @@ class Sidebar extends Component {
         super(props);
         this.handleCheckBox = this.handleCheckBox.bind(this);
         this.state = {
-            checked: false
+            checked: false,
+            mainHeadings: [],
+            subHeadings: [],
+            subSubHeadings: []
         };
+        this.props.getMainHeading();
+        this.props.getOnlySubHeading();
+        this.props.getSubSubHeading();
     }
     componentDidMount() {
         $('.parent > a').click(function () {
             $('.parent > div.menu').not($(this).siblings()).hide();
             $(this).siblings('div.menu').slideToggle();
         });
-        this.props.getMainHeading();
-        this.props.getOnlySubHeading();
-        this.props.getSubSubHeading();
+
+        // this.setState({
+        //     mainHeadings: this.props.mainHeadings,
+        //     subHeadings: this.props.subHeadings,
+        //     subSubHeadings: this.props.subSubHeadings
+        // });
     }
+
     changer = () => {
         this.props.toggler();
     };
@@ -37,142 +44,111 @@ class Sidebar extends Component {
         });
     }
 
+    static getDerivedStateFromProps(props, state) {
+        return {
+            mainHeadings: props.mainHeadings,
+            subHeadings: props.subHeadings,
+            subSubHeadings: props.subSubHeadings
+        };
+    }
+
     render() {
-        const { mainHeadings } = this.props.mainHeadings;
-        const { subHeadings } = this.props.subHeadings;
-        const { subSubHeadings } = this.props.subSubHeadings;
-        console.log('main heading' + this.props.mainHeadings[0].mainHeadingName);
-        return (
-            <>
-                <div className='mainsidebar'>
-                    <div className={this.props.sidebar ? 'side actives' : 'side'}>
-                        {this.props.mainHeadings?.map((mainH) => (
-                            <div className={'parent'}>
-                                <NavLink
-                                    to={`/${mainH.mainHeadingName}`}
-                                    activeStyle={{
-                                        borderBottom: '1px solid gray',
-                                        padding: '0px',
-                                        color: 'black'
-                                    }}
-                                >
-                                    {mainH.mainHeadingName}
-                                </NavLink>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                {/* {this.props.sidebar && ( */}
-                <div className='mainsidebar'>
-                    <div className={this.props.sidebar ? 'side actives' : 'side'}>
-                        <div className={'parent'}>
-                            <NavLink
-                                to={Constants.saleOffers}
-                                activeStyle={{
-                                    borderBottom: '1px solid gray',
-                                    padding: '0px',
-                                    color: 'black'
-                                }}
-                            >
-                                SALES & OFFERS
-                            </NavLink>
-
-                            <div className={'menu hidden'}>
-                                <div>
-                                    <ul>
-                                        {/* <div className={"parent"}> */}
-                                        <li>
-                                            <NavLink
-                                                to='/DECORSMIRRORS'
-                                                activeStyle={{
-                                                    borderBottom: '1px solid gray',
-                                                    padding: '0px',
-                                                    color: 'black'
-                                                }}
-                                                onClick={this.handleCheckBox}
-                                            >
-                                                DECOR & MIRRORS
-                                            </NavLink>
-
-                                            {this.state.checked ? (
-                                                <div>
-                                                    <ul>
+        console.log('IN RENDER>>>', this.state.subHeadings);
+        if (
+            this.state.subSubHeadings.length > 0 &&
+            this.state.mainHeadings.length > 0 &&
+            this.state.subHeadings.length > 0
+        ) {
+            return (
+                <>
+                    <div className='mainsidebar'>
+                        <div className={this.props.sidebar ? 'side actives' : 'side'}>
+                            {this.state.mainHeadings?.map((mainH) => (
+                                <div className={'parent'}>
+                                    <NavLink
+                                        to={`/${mainH.mainHeadingName}`}
+                                        activeStyle={{
+                                            borderBottom: '1px solid gray',
+                                            padding: '0px',
+                                            color: 'black'
+                                        }}
+                                    >
+                                        {mainH.mainHeadingName}
+                                    </NavLink>
+                                    <div className={'menu hidden'}>
+                                        <div>
+                                            <ul>
+                                                {this.state.subHeadings.map((subH) =>
+                                                    subH.mainHeadingName ===
+                                                    mainH.mainHeadingName ? (
                                                         <li>
                                                             <NavLink
-                                                                to='/VIEWALL'
+                                                                to={`/${subH.mainHeadingName}/${subH.subHeadingName}`}
                                                                 activeStyle={{
                                                                     borderBottom: '1px solid gray',
                                                                     padding: '0px',
                                                                     color: 'black'
                                                                 }}
+                                                                onClick={this.handleCheckBox}
                                                             >
-                                                                VIEW ALL
+                                                                {subH.subHeadingName}
                                                             </NavLink>
+                                                            {this.state.checked ? (
+                                                                <div>
+                                                                    <ul>
+                                                                        {this.state.subSubHeadings?.map(
+                                                                            (subSubH, index) =>
+                                                                                subSubH.mainHeadingName ===
+                                                                                    mainH.mainHeadingName &&
+                                                                                subSubH.subHeadingName ===
+                                                                                    subH.subHeadingName ? (
+                                                                                    <li key={index}>
+                                                                                        <NavLink
+                                                                                            to={`/${subSubH.mainHeadingName}/${subSubH.subHeadingName}/${subSubH.subSubHeadingName}`}
+                                                                                            activeStyle={{
+                                                                                                borderBottom:
+                                                                                                    '1px solid gray',
+                                                                                                padding:
+                                                                                                    '0px',
+                                                                                                color:
+                                                                                                    'black'
+                                                                                            }}
+                                                                                        >
+                                                                                            {
+                                                                                                subSubH.subSubHeadingName
+                                                                                            }
+                                                                                        </NavLink>
+                                                                                    </li>
+                                                                                ) : null
+                                                                        )}
+                                                                    </ul>
+                                                                </div>
+                                                            ) : null}
                                                         </li>
-                                                        <li>
-                                                            <NavLink
-                                                                to='/WALL MIRROR'
-                                                                activeStyle={{
-                                                                    borderBottom: '1px solid gray',
-                                                                    padding: '0px',
-                                                                    color: 'black'
-                                                                }}
-                                                            >
-                                                                WALL MIRROR
-                                                            </NavLink>
-                                                        </li>
-                                                        <li>
-                                                            <NavLink
-                                                                to='/FLOOR MIRROR'
-                                                                activeStyle={{
-                                                                    borderBottom: '1px solid gray',
-                                                                    padding: '0px',
-                                                                    color: 'black'
-                                                                }}
-                                                            >
-                                                                FLOOR MIRROR
-                                                            </NavLink>
-                                                        </li>
-
-                                                        <li>
-                                                            <NavLink
-                                                                to='/VANITY MIRROR'
-                                                                activeStyle={{
-                                                                    borderBottom: '1px solid gray',
-                                                                    padding: '0px',
-                                                                    color: 'black'
-                                                                }}
-                                                            >
-                                                                VANITY MIRROR
-                                                            </NavLink>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            ) : (
-                                                ''
-                                            )}
-                                            {/* </div> */}
-                                            {/* </div> */}
-                                        </li>
-                                    </ul>
+                                                    ) : null
+                                                )}
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
-                </div>
-                {/* )} */}
-            </>
-        );
+                </>
+            );
+        } else {
+            return <h1>LOADUING</h1>;
+        }
     }
 }
 const mapDispatchToProps = {
-    getMainHeading,
+    getSubSubHeading,
     getOnlySubHeading,
-    getSubSubHeading
+    getMainHeading
 };
 const mapStateToProps = (state) => ({
-    mainHeadings: state.mainHeading,
+    subSubHeadings: state.subSubHeading,
     subHeadings: state.subHeadingOnly,
-    subSubHeadings: state.subSubHeading
+    mainHeadings: state.mainHeading
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
