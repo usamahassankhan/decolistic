@@ -1,47 +1,69 @@
 .footermain {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 50px 100px;
-  align-items: flex-start;
-  text-align: left;
-  font-size: 13px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 50px 100px;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 13px;
+    flex-wrap: wrap;
 }
 .footer-container {
-  background-color: #f7f7f7;
-  width: 100%;
-  margin-left: -25px;
-  z-index: 999999999;
+    background-color: #f7f7f7;
+    width: 100%;
+    margin-left: -25px;
+    z-index: 999999999;
 }
 .lastrow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 .heading {
-  font-weight: 500;
+    font-weight: 500;
 }
 .paralast {
-  font-size: 13px;
+    font-size: 13px;
 }
 
 .tweeticon {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
 .printicon {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
 .instabicon {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
 .ytubeicon {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
 .column1 {
-  margin-top: -15px;
+    margin-top: -15px;
+}
+@media screen and (max-width: 500px) {
+    .footermain {
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        margin: auto;
+        /* text-align: center; */
+    }
+    .footer-container {
+        width: 110%;
+    }
+    .lastrow {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 350px) {
+    .footer-container {
+        width: 120%;
+    }
 }

@@ -38,7 +38,7 @@ class Header extends Component {
                             <AiOutlineMenu
                                 className='drawericon'
                                 // onClick={() => {
-                                //   this.props.sidebar();
+                                //     this.props.sidebar();
                                 // }}
                             />
                         </div>

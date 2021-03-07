@@ -1,12 +1,15 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://192.168.15.88:5000' });
+const API = axios.create({ baseURL: 'http://localhost:5000' });
 // API.interceptors.request.use((req) => {
 //     if (localStorage.getItem('profile')) {
 //         req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
 //     }
 //     return req;
 // });
+
+export const fetchImage = (id) => API.get(`/image/${id}`);
+
 export const fetchMainHeading = () => API.get('/mainheading/getall');
 export const createMainHeading = (newMainHeading) => API.post('/mainheading', newMainHeading);
 export const updateMainHeading = (id, updatedMainHeading) =>
@@ -15,9 +18,10 @@ export const deleteMainHeading = (id) => API.delete(`/mainheading/${id}`);
 
 //subheading
 // export const fetchSubHeading = (skip) => API.get(`/subheading/getall?skip=${skip}`);
-export const fetchSubHeading = (page, limit) => API.get(`/subheading/getall`);
+export const fetchSubHeading = () => API.get('/subheading/getall');
+export const fetchSubHeadingHandler = (tit) => API.post('/subheading/gettitle', { title: tit });
 //?page=${page}%limit=${limit}`);
-
+export const fetchOnlySubHeading = () => API.get('/subheading/getonlyheading');
 export const createSubHeading = (newSubHeading) => API.post('/subheading', newSubHeading);
 export const updateSubHeading = (id, updatedSubHeading) =>
     API.patch(`/subheading/${id}`, updatedSubHeading);

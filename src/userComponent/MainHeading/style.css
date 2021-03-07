@@ -1,38 +1,77 @@
 .mainHeading__wrapper {
-  margin-top: 0px;
-  margin-left: 100px;
+    margin-top: 0px;
+    margin-left: 100px;
 }
 .mainHeading__heading {
-  text-align: start;
-  margin-top: 70px;
-  margin-bottom: 40px;
-  font-size: x-large;
-  font-weight: 400;
-  font-family: Verdana;
+    text-align: start;
+    margin-top: 70px;
+    margin-bottom: 40px;
+    font-size: x-large;
+    font-weight: 400;
+    font-family: Verdana;
 }
 
 .mainHeading__CardContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 0px !important;
-  margin: 0px !important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0px !important;
+    margin: 0px !important;
 }
 .mainHeading__navClass {
-  padding: 0px 20px 0px 0px;
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  width: 30%;
-  margin-bottom: 40px;
+    padding: 0px 20px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    width: 30%;
+    margin-bottom: 40px;
 }
 .mainHeading__first {
-  width: 100%;
+    width: 100%;
 }
 .mainHeading__first-img > img {
-  width: 100%;
-  height: 400px;
+    width: 100%;
+    height: 400px;
 }
 .mainHeading__first-only {
-  font-size: 14px;
+    font-size: 14px;
+}
+@media screen and (max-width: 1000px) {
+    .mainHeading__CardContainer {
+        margin: 108px;
+        width: 638px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .mainHeading__CardContainer {
+        margin: 60px;
+        width: 500px !important;
+        flex-direction: column;
+    }
+    .mainHeading__wrapper {
+        width: 50%;
+    }
+    .mainHeading__navClass {
+        width: 80%;
+    }
+    .radar__bot-firsts {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .mainHeading__CardContainer {
+        margin: 60px;
+        width: 400px !important;
+        flex-direction: column;
+    }
+    .mainHeading__wrapper {
+        width: 50%;
+    }
+    .mainHeading__navClass {
+        width: 70%;
+    }
+    .radar__bot-firsts {
+        width: 300px;
+    }
 }

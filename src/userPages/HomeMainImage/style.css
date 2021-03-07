@@ -72,3 +72,19 @@
     margin: 10px 0px;
     margin-bottom: 30px;
 }
+@media screen and (max-width: 500px) {
+    .deal {
+        width: 100px;
+    }
+    .prep {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .deal {
+        width: 100px;
+    }
+    .prep {
+        font-size: 20px;
+    }
+}

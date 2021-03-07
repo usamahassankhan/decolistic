@@ -1,28 +1,63 @@
 .subHeading__wrapper {
-  margin-top: 60px;
-  margin-left: 100px;
+    margin-top: 60px;
+    margin-left: 100px;
 }
 .subHeading_routes {
-  text-align: start;
-  font-size: small;
-  color: #94938f;
-  margin: 0%;
+    text-align: start;
+    font-size: small;
+    color: #94938f;
+    margin: 0%;
 }
 .subHeading__heading > h2 {
-  text-align: start;
-  font-weight: 400;
-  margin: 0px;
-  padding: 0%;
+    text-align: start;
+    font-weight: 400;
+    margin: 0px;
+    padding: 0%;
 }
 
 .subHeading__images {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: left;
-  margin-top: 0px;
-  font-weight: 500;
-  font-size: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    margin-top: 0px;
+    font-weight: 500;
+    font-size: 28px;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1000px) {
+    .subHeadingCard__link {
+        width: 300px !important;
+    }
+    .subHeading__images {
+        width: 700px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .subHeading__images {
+        width: 622px;
+    }
+    .subHeading__wrapper {
+        margin-left: 0px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .subHeading__images {
+        width: 500px;
+    }
+    .subHeading__wrapper {
+        margin-left: 0px;
+    }
+    .subHeadingCard__link img {
+        width: 550px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .subHeading__images {
+        width: 400px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .subHeading__images {
+        width: 260px !important;
+    }
 }

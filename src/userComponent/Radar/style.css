@@ -1,70 +1,103 @@
 .Home__radarBox {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  margin-left: 0px;
-  padding: 0;
-  /* margin-bottom: -45px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 0px;
+    padding: 0;
+    /* margin-bottom: -45px; */
 }
 .Home__radarText {
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  font-weight: 300;
-  font-size: medium;
-  margin: 0px;
-  font-family: Verdana;
-  /* text-decoration: wavy; */
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    font-weight: 300;
+    font-size: medium;
+    margin: 0px;
+    font-family: Verdana;
+    /* text-decoration: wavy; */
 }
 .Home__radarBorder {
-  position: relative;
-  margin-left: 20px;
-  top: 0px;
-  border-bottom: 1px solid gray;
-  flex: 1;
+    position: relative;
+    margin-left: 20px;
+    top: 0px;
+    border-bottom: 1px solid gray;
+    flex: 1;
 }
 .radar__bottom {
-  margin: 0%;
-  display: flex;
-  flex-direction: row;
-  /* flex-wrap: wrap; */
-  /* flex: 1; */
-  /* width: 105%; */
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    /* flex: 1; */
+    /* width: 105%; */
 }
 .radar__bot-firsts {
-  text-align: start;
+    text-align: start;
 
-  padding: 0px 15px 0px 0px;
-  display: flex;
-  flex-direction: column;
-  width: 24%;
+    padding: 0px 15px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    width: 24%;
 }
 
 .radar__botImageContainer {
-  padding: 0;
-  width: 100%;
+    padding: 0;
+    width: 100%;
 }
 .radar__botImageContainer > img {
-  width: 100%;
-  height: 300px;
+    width: 100%;
+    height: 300px;
 }
 .radar__bot-only > p {
-  margin: 0;
-  color: black;
-  margin-top: 0px;
-  font-weight: 400;
-  font-family: Verdana;
-  font-size: 14px;
+    margin: 0;
+    color: black;
+    margin-top: 0px;
+    font-weight: 400;
+    font-family: Verdana;
+    font-size: 14px;
 }
 .radar__bot-ref {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 .radar__underline {
-  color: black;
-  margin-top: 20px;
-  margin-bottom: 0px;
-  font-size: 14px;
-  font-weight: 200;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-weight: 200;
+}
+@media screen and (max-width: 780px) {
+    .radar__bottom {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+    .radar__bot-firsts {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 700px) {
+    .mainHeading__wrapper {
+        margin-left: 0px !important;
+    }
+    .mainHeading__CardContainer {
+        width: 550px !important;
+    }
+}
+@media screen and (max-width: 500px) {
+    .radar__bottom {
+        margin: 0%;
+        display: flex;
+        flex-direction: column;
+    }
+    .radar__bot-firsts {
+        text-align: start;
+
+        padding: 0px 15px 0px 0px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }

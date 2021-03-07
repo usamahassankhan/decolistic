@@ -44,7 +44,7 @@ function Home() {
                             </Link>
                         </div>
                         <div className='rightInnerBox'>
-                            <img className='image1' src={im1} alt='image1' />
+                            <img className='image1' src={im1} alt='image2' />
                             <p>A NEW COLLECTION THAT WILL SET YOUR HEART FLUTTER</p>
                             <Link>
                                 <u>SHOP NOW</u>
@@ -116,9 +116,7 @@ function Home() {
                         </p>
 
                         <p>
-                            We believe that diverse perspectives make life beautiful. To further
-                            support the pledge, we’re taking these steps toward a more equitable and
-                            inclusive culture.
+                            We believe that diverse perspectives make life beautiful.
                             <br />
                             <Link>LEARN MORES</Link>
                         </p>

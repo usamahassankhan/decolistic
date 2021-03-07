@@ -1,101 +1,102 @@
 .request {
-  width: 60%;
-  margin-top: 4%;
+    width: 60%;
+    margin-top: 4%;
+    /* margin-left: 100px; */
 }
 .mainf1 {
-  display: flex;
-  width: 300px;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
 }
 .mainf11 p {
-  font-size: 10px;
-  padding: 0px;
-  margin: 0px;
-  margin-top: 5px;
+    font-size: 10px;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 5px;
 }
 .requestfooter {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid gray;
-  border-top: 1px solid gray;
-  padding: 10px 0px;
-  background-color: #f7f7f7;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
+    padding: 10px 0px;
+    background-color: #f7f7f7;
 }
 
 .rqmain {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
 }
 
 label {
-  font-size: 10px;
+    font-size: 10px;
 
-  font-weight: bolder;
+    font-weight: bolder;
 }
 .rqrow1checks {
-  display: flex;
-  justify-content: space-between;
-  width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
 }
 
 .rqrow1 {
-  display: flex;
-  width: 400px;
-  flex-direction: column;
+    display: flex;
+    width: 400px;
+    flex-direction: column;
 }
 .rqrow11 {
-  display: flex;
-  width: 230px;
-  flex-direction: column;
+    display: flex;
+    width: 230px;
+    flex-direction: column;
 }
 .rqrow12 {
-  display: flex;
-  width: 500px;
-  flex-direction: column;
+    display: flex;
+    width: 500px;
+    flex-direction: column;
 }
 .rqrow13 {
-  display: flex;
-  width: 300px;
-  flex-direction: column;
+    display: flex;
+    width: 300px;
+    flex-direction: column;
 }
 .rqrow14 {
-  display: flex;
-  width: 300px;
-  flex-direction: column;
+    display: flex;
+    width: 300px;
+    flex-direction: column;
 }
 .rqrow1check {
-  display: flex;
-  width: 800px;
-  flex-direction: row;
-  align-items: flex-start;
-  font-size: 10px;
-  font-weight: bolder;
+    display: flex;
+    width: 800px;
+    flex-direction: row;
+    align-items: flex-start;
+    font-size: 10px;
+    font-weight: bolder;
 }
 .rqrow1text {
-  display: flex;
-  width: 860px;
-  flex-direction: column;
+    display: flex;
+    width: 860px;
+    flex-direction: column;
 }
 .row1cde {
-  display: flex;
+    display: flex;
 
-  flex-direction: column;
+    flex-direction: column;
 }
 .rqrow1 label {
-  font-size: 10px;
-  font-weight: bold;
+    font-size: 10px;
+    font-weight: bold;
 }
 .row1cde label {
-  font-size: 10px;
-  font-weight: bold;
+    font-size: 10px;
+    font-weight: bold;
 }
 
 .rowbutton {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }
 .rqmaintext {
-  padding-top: 10px;
+    padding-top: 10px;
 }

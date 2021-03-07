@@ -212,7 +212,7 @@
 //     );
 // }
 
-// export default CreateSubMainCategory;
+// export default CreateSubMainCategory;import React, { useState, useEffect } from 'react';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
@@ -231,9 +231,6 @@ function CreateSubMainCategory() {
         subHeadingName: '',
         subImage: ''
     });
-    // const [mainHeading, setMainHeading] = useState({
-    //     mainHeadingName: ''
-    // });
 
     const dispatch = useDispatch();
 
@@ -241,7 +238,6 @@ function CreateSubMainCategory() {
 
     const subHeadings = useSelector((state) => state.subHeading);
     const mainHeadings = useSelector((state) => state.mainHeading);
-    // const currentMainHeadingId = useSelector((state) => state.currentMainHeadingId);
 
     const currentSubHeading = useSelector((state) =>
         currentId ? state.subHeading.find((h) => h._id === currentId) : null
@@ -255,13 +251,13 @@ function CreateSubMainCategory() {
         console.log(currentSubHeading);
 
         if (currentSubHeading) setSubHeading(currentSubHeading);
-    }, [currentId]);
+    }, [currentSubHeading]);
 
     const handleSubmit = (e) => {
+        e.preventDefault();
         if (subHeading.subHeadingName === '') {
             alert('must have something in sub heading');
         } else {
-            e.preventDefault();
             if (currentId === null) {
                 dispatch(createSubHeading(subHeading));
             } else {
@@ -269,7 +265,8 @@ function CreateSubMainCategory() {
             }
             //need to add if state of current id
             setSubHeading({
-                mainHeadingName: '',
+                ...subHeading,
+
                 subHeadingName: '',
                 subImage: ''
             });
@@ -282,7 +279,7 @@ function CreateSubMainCategory() {
     }
     useEffect(() => {
         dispatchingABC();
-    }, [currentId]);
+    }, []);
 
     return (
         <div>
@@ -290,7 +287,7 @@ function CreateSubMainCategory() {
                 <p>CREATE SUB CATEGORY</p>
             </div>
             <div className='mainsubpara'>
-                <form onSubmit={() => handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <label>Main Category</label>
                         <select

@@ -16,7 +16,7 @@ import productImage3 from '../../assets/ProductPageImages/BozziMnglnShpsknChair3
 import productImage4 from '../../assets/ProductPageImages/BozziMnglnShpsknChairAVSSS21.jpg';
 import productImage5 from '../../assets/ProductPageImages/BozziMnglnShpsknChairSDSSS21.jpg';
 import productImage6 from '../../assets/ProductPageImages/mainfurnitureImage.jpeg';
-
+import { useHistory } from 'react-router-dom';
 const pageData = {
     nameOfProduct: 'KST SOFA',
     priceOfProduct: '393625',
@@ -56,6 +56,7 @@ const pageData = {
 };
 
 function ProductHeader() {
+    let history = useHistory();
     return (
         <div style={{ marginTop: '4%' }} className='product__wrapper'>
             <div className='bodyBack'>
@@ -170,6 +171,7 @@ function ProductHeader() {
                     <div className='rightButtonContainer productTitle'>
                         <div className='product__button '>
                             <p
+                                onClick={() => history.push('./Customer')}
                                 style={{
                                     color: 'white',
                                     alignSelf: 'center',

@@ -4,7 +4,7 @@
   padding-right: 8px; */
 }
 .wrapperHeader {
-    width: 100%;
+    width: 93%;
 }
 .head {
     padding-top: 20px;
@@ -75,6 +75,8 @@
     display: none;
 }
 
+/* @media screen and (max-width: 750px) {
+} */
 @media screen and (max-width: 750px) {
     .sidebar {
         display: inline;
@@ -99,4 +101,63 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media screen and (max-width: 500px) {
+    /* .logoimg {
+        margin-left: 150px;
+    } */
+    .head {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row-reverse;
+        /* padding: 0px 60px; */
+        /* width: 90%; */
+    }
+    .mainsearchdiv {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row-reverse;
+    }
+}
+@media screen and (max-width: 300px) {
+    .wrapperHeader {
+        width: 1000px;
+    }
+    .drawericon {
+        width: 3em;
+        height: 3em;
+        visibility: visible;
+    }
+}
+@media screen and (max-width: 1000px) and (min-width: 700px) {
+    .wrapperHeader {
+        width: 97%;
+    }
+}
+/* @media screen and (max-width: 800px) and (min-width: 700px) { */
+
+/* @media screen and (max-width: 400px) {
+    .wrapperHeader {
+        width: 1050px;
+        margin-left: 100px;
+        padding-right: 1000px;
+    }
+} */
+/* @media screen and (max-width: 300px) {
+    .wrapperHeader {
+        width: 1050px;
+    }
+    .drawericon {
+        width: 3em;
+        height: 3em;
+        visibility: visible;
+    }
+} */
+@media screen and (max-width: 1000px) {
+    .logoimg {
+        width: 60px;
+        height: 40px;
+    }
 }

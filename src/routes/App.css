@@ -12,7 +12,8 @@
 }
 .slide {
     /* border: 1px solid red; */
-    width: 138px;
+    /* width: 138px; */
+    width: 90%;
 }
 .slide11 {
     display: none;
@@ -64,7 +65,8 @@
         background-color: white !important;
     }
     .active {
-        transform: translateX(-35%);
+        /* transform: translateX(-35%); */
+        transform: translateX(3%);
         transition: 0.5s ease-in;
     }
     .border2 {

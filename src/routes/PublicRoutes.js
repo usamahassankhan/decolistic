@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../userComponent/Header/Header';
 import Sidebar from '../userComponent/Sidebar/Sidebar';
 import Home from '../userPages/Home';
@@ -24,14 +24,24 @@ function App() {
         ToggleSide(!Tsidebar);
         // console.log("working")
     };
-
+    function handleResize() {
+        if (window.innerWidth < 1008) {
+            ToggleSide(true);
+        }
+        if (window.innerWidth > 1008) ToggleSide(false);
+    }
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [window.innerWidth]);
+    console.log('dsda', window.innerWidth);
     return (
         <div className='App'>
             <Router>
                 <div>
                     <Header sidebar={sidebarr} />
                 </div>
-                <div className={Tsidebar ? 'Border1 active' : 'Border1'}>
+                <div className={Tsidebar ? 'Border1 active' : 'Border1  '}>
                     <div
                         style={{
                             position: 'sticky',
