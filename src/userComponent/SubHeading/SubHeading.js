@@ -4,6 +4,8 @@ import img2 from '../../assets/CapriSilkPillow20X20AV2F20.jpg';
 import './style.css';
 import SubHeadingCard from './SubHeadingCard/SubHeadingCard';
 import Radar from '../Radar/Radar';
+import {} from '../../actions/products';
+
 const Data = [
     {
         id: 1,
@@ -91,14 +93,14 @@ const Data = [
     }
 ];
 
-const SubHeading = ({ pageToLoad }) => {
+const SubHeading = ({ pageToLoad, subHeadingName, subSubHeadingName, mainHeadingName }) => {
     return (
         <div className='subHeading__wrapper'>
             <div className='subHeading_routes'>
-                <p>NEW / VIEW ALL</p>
+                <p> {`${mainHeadingName}/${subHeadingName}`} </p>
             </div>
             <div className='subHeading__heading'>
-                <h2>VIEW ALL NEW</h2>
+                <h2>{subHeadingName}</h2>
             </div>
             <div className='subHeading__images'>
                 {Data.map(({ id, name, imageSrc, image2Src, price }) => {

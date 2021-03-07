@@ -9,11 +9,13 @@ import img7 from '../../assets/NewPageImages/123120_super_new_dining.jpg';
 import img8 from '../../assets/NewPageImages/123120_super_new_lighting.jpg';
 import img9 from '../../assets/NewPageImages/123120_super_new_pillows.jpg';
 import img4 from '../../assets/NewPageImages/123120_super_new_rugs.jpg';
-
+import { getSubHeadingTitle } from '../../actions/subHeading.js';
+import { getImage } from '../../actions/image.js';
 import './style.css';
 import { NavLink } from 'react-router-dom';
 import { Constants } from '../../Constants';
 import Radar from '../Radar/Radar';
+import { useDispatch, useSelector } from 'react-redux';
 const newPage = [
     {
         id: 1,
@@ -72,22 +74,46 @@ const newPage = [
 ];
 
 function MainHeading(props) {
-    const [data, setData] = useState(null);
-    const [getImage, setImage] = useState(newPage);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getSubHeadingTitle(props.pageToLoad));
+    });
+    var pageImages;
+    const OnImageLoad = (id) => {
+        dispatch(getImage(id));
+        pageImages = useSelector((state) => state.images);
+        console.log('pageasasd' + pageImages);
+    };
+    const subHeading = useSelector((state) => state.subHeading);
+    // console.log(subHeading);
+
     return (
         <div className='mainHeading__wrapper'>
-            <h2 className='mainHeading__heading'>NEW</h2>
+            <h2 className='mainHeading__heading'>{props.pageToLoad}</h2>
 
             <div className='mainHeading__CardContainer' style={{ padding: 0 }}>
-                {getImage.map(({ name, imageSrc, navLink }) => {
+                {subHeading.map((subH) => {
+                    OnImageLoad(subH.subImage);
                     return (
-                        <NavLink to={navLink} className='mainHeading__navClass'>
+                        <NavLink
+                            to={`/${subH.mainHeadingName}/${subH.subHeadingName}`}
+                            className='mainHeading__navClass'
+                        >
                             <div className='mainHeading__first'>
                                 <div className='mainHeading__first-img'>
-                                    <img src={imageSrc} alt={name} />
+                                    {/* <img
+                                        src={(() => {
+                                            const image = pageImages.filter(
+                                                (i) => i.id === subH.subImage
+                                            );
+                                            console.log(`IMAGE ${image}`);
+                                            return image.image;
+                                        })()}
+                                        alt='subImage'
+                                    /> */}
                                 </div>
                                 <div className='mainHeading__first-only'>
-                                    <p>{name}</p>
+                                    <p>{subH.subHeadingName}</p>
                                 </div>
                             </div>
                         </NavLink>
