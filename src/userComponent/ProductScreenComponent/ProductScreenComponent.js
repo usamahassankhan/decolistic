@@ -388,6 +388,7 @@ function ProductHeader() {
                         flexDirection: 'row',
                         justifyContent: 'space-around'
                     }}
+                    className='product_middleHeadingmain'
                 >
                     <div className='product_middleHeading'>
                         <p>DIMENSIONS</p>

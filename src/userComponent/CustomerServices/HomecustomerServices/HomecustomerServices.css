@@ -1,9 +1,55 @@
 .homecustomerservices {
-  display: flex;
-  align-items: flex-start;
-  text-align: left;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    width: 90%;
 }
 .hco {
-  width: 70%;
-  margin-top: 4%;
+    width: 70%;
+    margin-top: 4%;
+}
+@media screen and(max-width:1210px) {
+    .homecustomerservices {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+        width: 70%;
+    }
+    .hco {
+        width: 60%;
+        margin-top: 4%;
+    }
+}
+@media screen and(max-width:1110px) {
+    .homecustomerservices {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+        width: 60%;
+    }
+    .hco {
+        width: 50%;
+        margin-top: 4%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .homecustomerservices {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+        width: 70%;
+        flex-direction: column;
+    }
+    .hco {
+        width: 50%;
+        margin-top: 4%;
+    }
+    .subweb2 {
+        width: 800px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .subweb2 {
+        width: 600px;
+    }
 }

@@ -100,3 +100,50 @@ label {
 .rqmaintext {
     padding-top: 10px;
 }
+@media screen and (max-width: 1200px) {
+    .rqrow1text {
+        width: 500px !important ;
+    }
+    .rqmain {
+        width: 800px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .subweb2 {
+        width: 600px;
+    }
+    .rqmain {
+        display: flex;
+        flex-direction: column;
+    }
+    .rqrow1checks {
+        display: flex;
+        flex-direction: column;
+    }
+    .rowbutton {
+        margin-bottom: 100px;
+        width: 100px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .subweb2 {
+        width: 400px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .rqmain {
+        width: 300px !important;
+    }
+    .rqrow1 {
+        width: 300px !important;
+    }
+    .rqrow1check {
+        width: 300px !important;
+    }
+    .rqrow12 {
+        width: 300px !important;
+    }
+    .rqrow1text {
+        width: 300px !important;
+    }
+}

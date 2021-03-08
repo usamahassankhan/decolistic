@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // import React, { useState, useEffect } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import FileBase from 'react-file-base64';
@@ -214,8 +213,6 @@
 // }
 
 // export default CreateSubMainCategory;import React, { useState, useEffect } from 'react';
-=======
->>>>>>> dde48fb9781a82b44a7bd86da4337320fddb23ff
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';

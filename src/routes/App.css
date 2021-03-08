@@ -63,6 +63,8 @@
         height: 30%;
         transform: translateX(0%);
         background-color: white !important;
+        /* display: flex;
+        flex-direction: column; */
     }
     .active {
         /* transform: translateX(-35%); */

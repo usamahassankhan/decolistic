@@ -9,11 +9,10 @@ const CustomerServices = ({ sidebar }) => {
     // console.log("dsds", props.match.isExact);
 
     return (
-        <div style={{ display: 'flex' }}>
-            <HomecustomerServices sidebar={sidebar} />
-            {/* {props.location.pathname === "/dustomer" && <RequestQuote />} */}
-            {/* {props.match.isExact ? <RequestQuote /> : "f"} */}
-        </div>
+        <HomecustomerServices sidebar={sidebar} />
+        // <div style={{ display: 'flex' }}>
+
+        // </div>
     );
 };
 

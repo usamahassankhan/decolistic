@@ -17,13 +17,15 @@ const HomecustomerServices = ({ sidebar }) => {
         <div className='homecustomerservices'>
             <Router>
                 {/* <Sidebarcustomerservices /> */}
-                {sidebar && <Sidebarcustomerservices />}
+                <div>{sidebar && <Sidebarcustomerservices />}</div>
                 <Switch>
-                    <Route path='/customer/overview' exact component={Overviewcustomer} />
-                    <Route path='/customer/oversized' exact component={Oversized} />
-                    <Route path='/customer/return' exact component={Returnexchange} />
-                    <Route path='/customer' exact component={RequestQuote} />
-                    <Route path='/customer/help' exact component={Help} />
+                    <div className='subweb2'>
+                        <Route path='/customer/overview' exact component={Overviewcustomer} />
+                        <Route path='/customer/oversized' exact component={Oversized} />
+                        <Route path='/customer/return' exact component={Returnexchange} />
+                        <Route path='/customer' exact component={RequestQuote} />
+                        <Route path='/customer/help' exact component={Help} />
+                    </div>
                 </Switch>
             </Router>
         </div>

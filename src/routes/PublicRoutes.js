@@ -30,7 +30,6 @@ function App() {
         ToggleSide(!Tsidebar);
         // console.log("working")
     };
-<<<<<<< HEAD
     function handleResize() {
         if (window.innerWidth < 1008) {
             ToggleSide(true);
@@ -42,7 +41,6 @@ function App() {
         return () => window.removeEventListener('resize', handleResize);
     }, [window.innerWidth]);
     console.log('dsda', window.innerWidth);
-=======
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getMainHeading);
@@ -52,7 +50,6 @@ function App() {
     const mainHeadings = useSelector((state) => state.mainHeading);
     const subHeadings = useSelector((state) => state.subHeadingOnly);
     const subSubHeadings = useSelector((state) => state.subSubHeadings);
->>>>>>> dde48fb9781a82b44a7bd86da4337320fddb23ff
     return (
         <div className='App'>
             <Router>
@@ -105,7 +102,6 @@ function App() {
                                 path={Constants.new}
                                 render={() => <MainHeading pageToLoad={Constants.new} />}
                             />
-
                             <Route
                                 exact
                                 path={Constants.saleOffers}
@@ -120,11 +116,10 @@ function App() {
                                     )}
                                 />
                             ))}
-
                             {
                                 //sub heading routes NEW
                             }
-                            {subHeadings?.map((subH) => (
+                            {/* {subHeadings?.map((subH) => (
                                 <Route
                                     exact
                                     path={`/${subH.mainHeadingName}/${subH.subHeadingName}`}
@@ -150,8 +145,13 @@ function App() {
                                         />
                                     )}
                                 />
-                            ))}
+                            ))} */}
 
+                            <Route
+                                exact
+                                path={Constants.newViewAll}
+                                render={() => <SubHeading pageToLoad={Constants.newViewAll} />}
+                            />
                             {/* <Route exact path="/" render={() => <CustomerServices />} /> */}
                         </Switch>
                     </div>
