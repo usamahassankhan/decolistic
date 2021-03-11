@@ -13,7 +13,8 @@
 .slide {
     /* border: 1px solid red; */
     /* width: 138px; */
-    width: 90%;
+    /* width:90% */
+    width: 203px;
 }
 .slide11 {
     display: none;

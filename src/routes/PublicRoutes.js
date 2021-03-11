@@ -56,7 +56,7 @@ function App() {
                 <div>
                     <Header sidebar={sidebarr} />
                 </div>
-                <div className={Tsidebar ? 'Border1 active' : 'Border1  '}>
+                <div className={Tsidebar ? 'Border1' : 'Border1  '}>
                     <div
                         style={{
                             position: 'sticky',

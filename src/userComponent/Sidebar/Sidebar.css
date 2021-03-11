@@ -18,9 +18,10 @@
     overflow-y: auto;
     overflow-x: hidden;
     height: 560px;
-    width: 230px;
+    width: 214px;
     /* width:100%; */
-    z-index: 99999999999;
+    /* z-index: 99999999999; */
+    /* z-index: -100; */
     /* display: none; */
 }
 /* .assdas {
@@ -89,11 +90,14 @@ li {
     /* background-color: white; */
     /* position: fixed; */
 }
+/* .sideinner {
+    margin-left: -100px;
+} */
 .actives {
-    transform: translateX(0vh);
-    transition: 0.7s ease-in;
+    /* transform: translateX(0vh);
+    transition: 0.7s ease-in; */
     display: none;
-    z-index: 99999999999;
+    /* z-index: 99999999999; */
     /* background-color: white !important; */
 }
 .parent {
@@ -182,4 +186,16 @@ li a {
 }
 .hidden {
     display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .actives {
+        display: block !important;
+        visibility: hidden;
+        margin-right: 100px;
+        /* margin-left: -100px; */
+    }
+    .mainsidebar {
+        margin-top: -26px;
+    }
 }

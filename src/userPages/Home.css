@@ -225,7 +225,7 @@
     /* border: 1px solid red; */
 }
 .chic {
-    min-height: 800px;
+    /* min-height: 800px; */
     max-width: 1640px;
     height: 980px;
     background-image: url('../assets/110620_home_chicretreat.jpg');
@@ -296,9 +296,9 @@
     font-size: 20px;
 }
 .gift {
-    min-height: 800px;
-    max-width: 1640px;
-    height: 980px;
+    height: 800px;
+    width: 1640px;
+    /* height: 980px; */
     background-image: url('../assets/111420_home_gifts.jpg');
     background-size: cover;
     background-position: center;
@@ -460,23 +460,55 @@
         flex-direction: column;
         display: flex;
     }
-
+    .chic {
+        margin-left: 0px;
+        height: 230px;
+        width: 376px;
+    }
+    .gift {
+        width: 376px;
+    }
+    .gift-text {
+        display: flex;
+        flex-direction: column;
+        margin-top: 100px;
+        margin-right: 0px;
+        font-weight: 500;
+        font-size: 50px;
+    }
+    .gift-ref {
+        display: flex;
+        flex-direction: column;
+        margin-right: 0px;
+        font-size: 20px;
+        color: white;
+    }
+    .imageback {
+        height: 400px;
+        width: 376px;
+    }
     .rightInnerBox > img {
-        width: 230px;
+        width: 376px;
+        margin-left: -20px;
     }
     p {
-        max-width: 230px;
+        max-width: 290px;
     }
     .back {
         width: 380px !important;
+        height: 300px !important;
+    }
+    .celeb-text {
+        width: 300px;
     }
     .wrapperHome {
         padding-top: 20px;
-        display: flex;
+        /* display: flex; */
         justify-content: center;
-        margin-left: -120px;
+        margin-left: -327px;
         /* width: 100%; */
         width: 450px;
+        padding-left: 100px !important;
         /* margin: auto; */
     }
     .imageback {
@@ -502,6 +534,12 @@
         font-weight: bolder;
         color: gray;
         padding: 0px 20px 0px 20px;
+    }
+    .celeb {
+        width: 376px;
+    }
+    .radar__bot-firsts {
+        width: 376px !important;
     }
 }
 

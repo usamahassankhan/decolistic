@@ -558,10 +558,11 @@ class Sidebar extends Component {
             window.location.pathname !== '/customer/feedback'
         ) {
             return (
-                <div>
+                <>
                     {/* {this.props.sidebar && ( */}
                     <div className={this.props.sidebar ? 'actives' : 'mainsidebar'}>
-                        {/* <div className={this.props.sidebar ? "side actives" : "side"}> */}
+                        {/* <div className={this.props.sidebar ? 'side actives' : 'side'}> */}
+                        {/* <div className={this.props.sidebar ? 'side' : 'sideinner'}> */}
                         <div className='side'>
                             <div className='parent'>
                                 <NavLink
@@ -1958,7 +1959,7 @@ class Sidebar extends Component {
                         </div>
                     </div>
                     {/* )} */}
-                </div>
+                </>
             );
         } else {
             return null;

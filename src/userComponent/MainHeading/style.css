@@ -75,3 +75,18 @@
         width: 300px;
     }
 }
+
+@media screen and (max-width: 500px) and (min-width: 300px) {
+    .mainHeading__wrapper {
+        /* margin-left: -219px !important; */
+
+        padding-top: 20px;
+        /* display: flex; */
+        justify-content: center;
+        margin-left: -295px !important;
+        /* width: 100%; */
+        width: 450px;
+        padding-left: 100px !important;
+        /* margin: auto; */
+    }
+}

@@ -16,7 +16,7 @@ import HomeMainImage from './HomeMainImage/HomeMainImage';
 function Home() {
     return (
         <div className='wrapperHome'>
-            <div className='home' style={{ paddingLeft: '0px' }}>
+            <div className='home' style={{ paddingLeft: '28px' }}>
                 <div className='top' style={{ paddingLeft: '0px' }}>
                     <div className='innerTopText'>
                         <a style={{ color: 'black', fontWeight: '500' }}>SHOP SAFELY </a>
