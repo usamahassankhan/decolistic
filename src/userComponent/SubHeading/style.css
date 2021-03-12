@@ -43,9 +43,11 @@
 @media screen and (max-width: 600px) {
     .subHeading__images {
         width: 500px;
+        /* margin-left: -209px; */
     }
     .subHeading__wrapper {
         margin-left: 0px;
+        margin-left: -205px;
     }
     .subHeadingCard__link img {
         width: 550px;

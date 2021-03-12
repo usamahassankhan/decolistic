@@ -259,6 +259,7 @@
     .product__wrapper {
         width: 350px;
         padding-right: 0px;
+        margin-left: -211px;
     }
 }
 @media screen and (max-width: 400px) {

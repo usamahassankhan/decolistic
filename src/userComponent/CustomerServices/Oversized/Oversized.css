@@ -30,7 +30,34 @@
     background-color: black;
     color: white;
 }
+/* @media screen and (max-width: 765px) and (min-width: 500px) {
+    .oversized {
+        width: 500px;
+    }
+    .subweb2 {
+        width: 500px !important;
+    }
+    .row1label {
+        display: flex;
+        flex-direction: row;
+    }
+    .row1c {
+        display: flex;
+        width: 270px;
+        flex-direction: column;
+    }
+    .row1cd,
+    .row1label1 {
+        width: 280px;
+    }
+} */
 @media screen and (max-width: 400px) {
+    .oversized {
+        width: 300px;
+    }
+    .subweb2 {
+        width: 300px !important;
+    }
     .row1label {
         display: flex;
         flex-direction: column;
@@ -39,5 +66,9 @@
         display: flex;
         width: 270px;
         flex-direction: column;
+    }
+    .row1cd,
+    .row1label1 {
+        width: 280px;
     }
 }

@@ -109,7 +109,11 @@ li {
     margin-top: 20px;
     /* font-weight: bold; */
 }
-
+@media screen and (min-width: 1001px) {
+    .mainsidebarss {
+        margin-left: -200px;
+    }
+}
 @media screen and (max-width: 0px) {
     .sides {
         transform: translateX(-150vh);
@@ -188,4 +192,14 @@ li a {
 }
 .hidden {
     display: none;
+}
+@media screen and (max-width: 600px) {
+    .mainsidebarss {
+        height: 300px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .mainsidebarss {
+        height: 300px;
+    }
 }

@@ -39,6 +39,7 @@
         text-align: left;
         width: 70%;
         flex-direction: column;
+        margin-left: -199px;
     }
     .hco {
         width: 50%;

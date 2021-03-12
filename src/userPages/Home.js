@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-// import img1 from "../Assets/111420_home_bedding.jpg";
+import img1 from '../assets/im2.jfif';
 import im1 from '../assets/im1.jfif';
 // import im2 from "../Assets/im2.jfif";
 // import img2 from "../Assets/102320_home_trees.jpg";
@@ -32,7 +32,8 @@ function Home() {
                 </div>
                 <div className='mainback'>
                     <div className='back'>
-                        <HomeMainImage />
+                        {/* <HomeMainImage /> */}
+                        <img src={img1} />
                     </div>
 
                     <div className='rightContent'>

@@ -11,6 +11,31 @@
     width: 100%;
     padding-top: 0px;
 }
+.back {
+    /* height: 800px; */
+    /* max-width: 1640px; */
+    width: 1640px;
+    /* height: 1335px; */
+    /* height: 100%; */
+    /* background-image: url('../assets/111420_home_top.jpg'); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 0px;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 30px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 1000px !important;
+    /* width: 80%; */
+}
+.back > img {
+    width: 100%;
+}
 
 .top {
     display: flex;
@@ -31,6 +56,7 @@
 .back {
     padding-left: 0px;
     flex: 3;
+    width: 100% !important;
 }
 .mainback {
     display: flex;
@@ -297,7 +323,7 @@
 }
 .gift {
     height: 800px;
-    width: 1640px;
+    width: 98%;
     /* height: 980px; */
     background-image: url('../assets/111420_home_gifts.jpg');
     background-size: cover;
@@ -367,7 +393,7 @@
     }
     .back {
         flex: 3;
-        height: 300px;
+        /* height: 300px; */
         margin-left: 0px;
         /* color: white; */
     }
@@ -417,8 +443,8 @@
     p {
         max-width: 230px;
     }
-    .back {
-        width: 300px !important;
+    .back > img {
+        width: 380px !important;
     }
     .wrapperHome {
         padding-top: 20px;
@@ -465,6 +491,12 @@
         height: 230px;
         width: 376px;
     }
+    .chic-text {
+        width: 300px;
+    }
+    .ref-text {
+        width: 300px;
+    }
     .gift {
         width: 376px;
     }
@@ -496,16 +528,17 @@
     }
     .back {
         width: 380px !important;
-        height: 300px !important;
+        /* height: 1300px !important; */
     }
     .celeb-text {
         width: 300px;
+        margin-right: 0px;
     }
     .wrapperHome {
         padding-top: 20px;
         /* display: flex; */
         justify-content: center;
-        margin-left: -327px;
+        margin-left: -345px;
         /* width: 100%; */
         width: 450px;
         padding-left: 100px !important;

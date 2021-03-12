@@ -1,24 +1,3 @@
-.back {
-    min-height: 800px;
-    max-width: 1640px;
-    /* height: 1335px; */
-    height: 100%;
-    background-image: url('../../assets/111420_home_top.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-left: 0px;
-    display: flex;
-    /* flex-direction: row-reverse; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    padding: 30px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 80%;
-}
-
 .deal {
     display: flex;
     flex-direction: column;
@@ -78,6 +57,9 @@
     }
     .prep {
         font-size: 20px;
+    }
+    .back {
+        background-size: contain;
     }
 }
 @media screen and (max-width: 1000px) {
