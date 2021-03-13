@@ -51,9 +51,16 @@
         width: 280px;
     }
 } */
+@media screen and (max-width: 1000px) {
+    .oversized {
+        width: 300px;
+        margin-bottom: 100px;
+    }
+}
 @media screen and (max-width: 400px) {
     .oversized {
         width: 300px;
+        margin-bottom: 100px;
     }
     .subweb2 {
         width: 300px !important;

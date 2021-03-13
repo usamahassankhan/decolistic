@@ -31,6 +31,10 @@
     .subHeading__images {
         width: 700px;
     }
+    .subHeading__wrapper {
+        margin-left: 0px;
+        margin-left: -205px;
+    }
 }
 @media screen and (max-width: 800px) {
     .subHeading__images {
@@ -38,6 +42,7 @@
     }
     .subHeading__wrapper {
         margin-left: 0px;
+        margin-left: -205px;
     }
 }
 @media screen and (max-width: 600px) {

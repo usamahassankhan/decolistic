@@ -54,3 +54,11 @@
         width: 600px;
     }
 }
+@media screen and (max-width: 500px) and (min-width: 300px) {
+    .subweb2 {
+        width: 300px;
+    }
+    .homecustomerservices {
+        width: 300px !important;
+    }
+}

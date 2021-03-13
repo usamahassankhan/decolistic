@@ -58,13 +58,14 @@ function App() {
                 </div>
                 <div className={Tsidebar ? 'Border1' : 'Border1  '}>
                     <div
-                        style={{
-                            position: 'sticky',
-                            zIndex: '0',
-                            top: '0',
-                            left: '0',
-                            padding: '2vh'
-                        }}
+                        // style={{
+                        //     position: 'sticky',
+                        //     zIndex: '0',
+                        //     top: '0',
+                        //     left: '0',
+                        //     padding: '2vh'
+                        // }}
+                        className='slidermain'
                     >
                         <div className='slide'>
                             <Sidebar sidebar={Tsidebar} />

@@ -238,21 +238,30 @@
         padding: 10px 100px 0px 4px;
     }
 }
+@media screen and (max-width: 1000px) {
+    .product__wrapper {
+        width: 8000px;
+        margin-left: -211px;
+    }
+}
 
 @media screen and (max-width: 720px) {
     .product__wrapper {
         width: 600px;
+        margin-left: -211px;
     }
 }
 @media screen and (max-width: 600px) {
     .product__wrapper {
         width: 500px;
+        margin-left: -211px;
     }
 }
 @media screen and (max-width: 560px) {
     .product__wrapper {
         width: 450px;
         padding-right: 0px;
+        margin-left: -211px;
     }
 }
 @media screen and (max-width: 480px) {

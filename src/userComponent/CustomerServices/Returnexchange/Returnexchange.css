@@ -1,4 +1,9 @@
 .return {
-  width: 70%;
-  margin-top: 4%;
+    width: 70%;
+    margin-top: 4%;
+}
+@media screen and (max-width: 1000px) {
+    .return > h1 {
+        font-size: 25px;
+    }
 }

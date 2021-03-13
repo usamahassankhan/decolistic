@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import img1 from '../assets/im2.jfif';
 import im1 from '../assets/im1.jfif';
+import celeb from '../assets/102220_home_holiday.jpg';
 // import im2 from "../Assets/im2.jfif";
 // import img2 from "../Assets/102320_home_trees.jpg";
 // import img3 from "../Assets/111420_home_clearance.jpg";
@@ -125,10 +126,11 @@ function Home() {
                 </div>
 
                 <div className='celeb'>
-                    <div className='celeb-text'>Let's Decorate</div>
-                    <div className='celeb-ref'>
+                    <img src={celeb} />
+                    <p className='celeb-text'>Let's Decorate</p>
+                    <p className='celeb-ref'>
                         <a href='#'>Shop Holiday</a>
-                    </div>
+                    </p>
                 </div>
                 <Radar />
             </div>

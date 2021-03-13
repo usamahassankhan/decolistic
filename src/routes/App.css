@@ -16,6 +16,13 @@
     /* width:90% */
     width: 203px;
 }
+.slidermain {
+    position: sticky;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    padding: 2vh;
+}
 .slide11 {
     display: none;
 }
@@ -90,4 +97,13 @@
 }
 .closed {
     display: none;
+}
+@media screen and (max-width: 1000px) {
+    .slidermain {
+        position: sticky;
+        z-index: 0;
+        top: -490px;
+        left: 0;
+        padding: 2vh;
+    }
 }

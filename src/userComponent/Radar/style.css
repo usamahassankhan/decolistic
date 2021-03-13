@@ -82,8 +82,14 @@
     .mainHeading__wrapper {
         margin-left: 0px !important;
     }
+    /* .radar__bottom {
+        width: 500px !important;
+    } */
     .mainHeading__CardContainer {
         width: 550px !important;
+    }
+    .radar__bot-firsts {
+        width: 500px !important;
     }
 }
 @media screen and (max-width: 500px) {
@@ -98,6 +104,6 @@
         padding: 0px 15px 0px 0px;
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 350px !important;
     }
 }

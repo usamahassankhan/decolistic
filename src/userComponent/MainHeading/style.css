@@ -41,6 +41,10 @@
         margin: 108px;
         width: 638px;
     }
+    .mainHeading__wrapper {
+        width: 100%;
+        margin-left: -225px !important;
+    }
 }
 @media screen and (max-width: 600px) {
     .mainHeading__CardContainer {
@@ -50,6 +54,7 @@
     }
     .mainHeading__wrapper {
         width: 50%;
+        margin-left: -225px !important;
     }
     .mainHeading__navClass {
         width: 80%;

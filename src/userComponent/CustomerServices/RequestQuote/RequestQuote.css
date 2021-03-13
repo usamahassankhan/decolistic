@@ -106,9 +106,10 @@ label {
     }
     .rqmain {
         width: 800px;
+        margin-bottom: 60px;
     }
 }
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
     .subweb2 {
         width: 600px;
     }
@@ -124,15 +125,79 @@ label {
         margin-bottom: 100px;
         width: 100px;
     }
+} */
+
+@media screen and (max-width: 800px) {
+    .subweb2 {
+        width: 600px !important;
+    }
+    .rqrow1checks {
+        width: 600px !important;
+    }
+    .request {
+        width: 600px !important;
+    }
+    .rqmain {
+        width: 600px !important;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .rqrow1 {
+        width: 600px !important;
+    }
+    .rqrow1check {
+        width: 600px !important;
+    }
+    .rqrow12 {
+        width: 600px !important;
+    }
+    .rqrow1text {
+        width: 600px !important;
+    }
 }
 @media screen and (max-width: 600px) {
     .subweb2 {
         width: 400px;
     }
+    .rqrow1checks {
+        width: 400px !important;
+    }
+    .request {
+        width: 400px !important;
+    }
+    .rqmain {
+        width: 400px !important;
+    }
+    .rqrow1 {
+        width: 400px !important;
+    }
+    .rqrow1check {
+        width: 400px !important;
+    }
+    .rqrow12 {
+        width: 400px !important;
+    }
+    .rqrow1text {
+        width: 400px !important;
+    }
 }
 @media screen and (max-width: 500px) {
+    .rqrow1checks {
+        width: 300px !important;
+    }
+    .request {
+        width: 300px !important;
+    }
+    .request > h1 {
+        font-size: 20px;
+        padding: 20px 0px;
+    }
+    .subweb2 {
+        width: 300px !important;
+    }
     .rqmain {
         width: 300px !important;
+        margin-bottom: 60px;
     }
     .rqrow1 {
         width: 300px !important;
