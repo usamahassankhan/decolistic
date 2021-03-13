@@ -45,7 +45,7 @@ const index = () => {
                 <div className='column4'>
                     <div className='heading'> RESOURCES</div>
                     <div>CATALOGS</div>
-                    <div>CB2 INTERIORS</div>
+                    <div>Decolistic INTERIORS</div>
                     <div>PRODUCT RECALLS</div>
                     <div>ACCESSIBILITY STATEMENT</div>
                 </div>
@@ -60,7 +60,7 @@ const index = () => {
             </div>
             <div className='lastrow'>
                 <p>
-                    <p>©2021 CB2 TERMS OF USE PRIVACY POLICY SITE INDEX AD CHOICES</p>
+                    <p>©2021 Decolistic TERMS OF USE PRIVACY POLICY SITE INDEX AD CHOICES</p>
                 </p>
                 <span> |</span>
                 <p className='paralast'>

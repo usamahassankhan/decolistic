@@ -93,9 +93,9 @@ function Products() {
                     <div className='bot-img'>
                         <img src={botimg2} alt />
                     </div>
-                    <div className='bot-only'>CB2 in your space: Photo by @Logi.Berra</div>
+                    <div className='bot-only'>Decolistic in your space: Photo by @Logi.Berra</div>
                     <div className='bot-ref'>
-                        <a href='#'>See all #MYCB2 Photos</a>
+                        <a href='#'>See all #MYDecolistic Photos</a>
                     </div>
                 </div>
                 <div className='bot-first'>

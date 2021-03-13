@@ -20,7 +20,7 @@ import { useHistory } from 'react-router-dom';
 const pageData = {
     nameOfProduct: 'KST SOFA',
     priceOfProduct: '393625',
-    companyName: 'CB2 exclusive',
+    companyName: 'Decolistic exclusive',
     review: '0.0',
     model: 'SKU:14544',
     color: [
@@ -408,7 +408,7 @@ function ProductHeader() {
                         traditional '60s-inspired rolled-arm design, with elegance reminiscent of an
                         old-world English film set. Monochromatic welts along the edges finish
                         things off, while down-feather cushions keep it cozy. Outfitted in a
-                        FSC-certified wood frame. CB2 exclusive.
+                        FSC-certified wood frame. Decolistic exclusive.
                     </p>
                 </div>
                 <div style={{ display: 'flex' }}>
@@ -552,9 +552,9 @@ function ProductHeader() {
                 className='product__careText'
             >
                 <p>
-                    At CB2, we stand behind the quality of our products and want every purchase to
-                    be a positive experience. We will do our best to make things right if you are
-                    not satisfied.
+                    At Decolistic, we stand behind the quality of our products and want every
+                    purchase to be a positive experience. We will do our best to make things right
+                    if you are not satisfied.
                 </p>
             </div>
             <div style={{ display: 'flex', textAlign: 'start', marginTop: '20px' }}>

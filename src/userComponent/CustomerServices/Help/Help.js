@@ -16,7 +16,7 @@ const Help = () => {
                 <Card className='dasa'>
                     <Accordion.Toggle as={Card.Header} eventKey='0'>
                         <div className='iconandname'>
-                            <p> Can my cb2 ordered be delivered on time </p>
+                            <p> Can my Decolistic ordered be delivered on time </p>
                             <BiPlus />
                         </div>
                     </Accordion.Toggle>
@@ -43,11 +43,11 @@ const Help = () => {
                     <Accordion.Collapse eventKey='1'>
                         <Card.Body>
                             Borderfree is a groundbreaking global ecommerce solution that allows us
-                            to present our international shoppers with CB2 product prices in the
-                            currency of your choice, aggressive international shipping costs and the
-                            lowest possible guaranteed order total. The Borderfree solution allows
-                            us to serve the best possible shopping experience to our international
-                            customers, so that you can buy from us with confidence.
+                            to present our international shoppers with Decolistic product prices in
+                            the currency of your choice, aggressive international shipping costs and
+                            the lowest possible guaranteed order total. The Borderfree solution
+                            allows us to serve the best possible shopping experience to our
+                            international customers, so that you can buy from us with confidence.
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>
@@ -60,7 +60,7 @@ const Help = () => {
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey='2'>
                         <Card.Body>
-                            Just add CB2 items to your Cart and click on the Checkout button.
+                            Just add Decolistic items to your Cart and click on the Checkout button.
                             Borderfree will calculate and display a guaranteed order total in your
                             preferred currency, including all shipping costs from our warehouse(s)
                             in the U.S. to your selected international destination, and any
@@ -101,7 +101,7 @@ const Help = () => {
                             Currently, Borderfree supports billing in over 40 global currencies,
                             with more being added on an ongoing basis. Click here to view and select
                             from a list of our supported currencies. Once you confirm your
-                            preferences, you will be able to see CB2 products priced in your
+                            preferences, you will be able to see Decolistic products priced in your
                             selected currency.
                         </Card.Body>
                     </Accordion.Collapse>
@@ -138,7 +138,7 @@ const Help = () => {
                     <Accordion.Collapse eventKey='6'>
                         <Card.Body>
                             Yes, Borderfree supports international gift-giving, in that you can
-                            receive a guaranteed order total for a CB2 order that is shipping
+                            receive a guaranteed order total for a Decolistic order that is shipping
                             internationally, but pay in USD using a U.S. credit card. This also
                             works if you’re an American traveling or living abroad.
                         </Card.Body>
@@ -157,7 +157,7 @@ const Help = () => {
                     <Accordion.Collapse eventKey='7'>
                         <Card.Body>
                             Yes, Borderfree supports international gift-giving, in that you can
-                            receive a guaranteed order total for a CB2 order that is shipping
+                            receive a guaranteed order total for a Decolistic order that is shipping
                             internationally, but pay in USD using a U.S. credit card. This also
                             works if you’re an American traveling or living abroad.
                         </Card.Body>
@@ -176,7 +176,7 @@ const Help = () => {
                     <Accordion.Collapse eventKey='8'>
                         <Card.Body>
                             Yes, Borderfree supports international gift-giving, in that you can
-                            receive a guaranteed order total for a CB2 order that is shipping
+                            receive a guaranteed order total for a Decolistic order that is shipping
                             internationally, but pay in USD using a U.S. credit card. This also
                             works if you’re an American traveling or living abroad.
                         </Card.Body>
@@ -195,7 +195,7 @@ const Help = () => {
                     <Accordion.Collapse eventKey='9'>
                         <Card.Body>
                             Yes, Borderfree supports international gift-giving, in that you can
-                            receive a guaranteed order total for a CB2 order that is shipping
+                            receive a guaranteed order total for a Decolistic order that is shipping
                             internationally, but pay in USD using a U.S. credit card. This also
                             works if you’re an American traveling or living abroad.
                         </Card.Body>
@@ -214,7 +214,7 @@ const Help = () => {
                     <Accordion.Collapse eventKey='10'>
                         <Card.Body>
                             Yes, Borderfree supports international gift-giving, in that you can
-                            receive a guaranteed order total for a CB2 order that is shipping
+                            receive a guaranteed order total for a Decolistic order that is shipping
                             internationally, but pay in USD using a U.S. credit card. This also
                             works if you’re an American traveling or living abroad.
                         </Card.Body>
@@ -233,7 +233,7 @@ const Help = () => {
                     <Accordion.Collapse eventKey='11'>
                         <Card.Body>
                             Yes, Borderfree supports international gift-giving, in that you can
-                            receive a guaranteed order total for a CB2 order that is shipping
+                            receive a guaranteed order total for a Decolistic order that is shipping
                             internationally, but pay in USD using a U.S. credit card. This also
                             works if you’re an American traveling or living abroad.
                         </Card.Body>
@@ -252,7 +252,7 @@ const Help = () => {
                     <Accordion.Collapse eventKey='12'>
                         <Card.Body>
                             Yes, Borderfree supports international gift-giving, in that you can
-                            receive a guaranteed order total for a CB2 order that is shipping
+                            receive a guaranteed order total for a Decolistic order that is shipping
                             internationally, but pay in USD using a U.S. credit card. This also
                             works if you’re an American traveling or living abroad.
                         </Card.Body>

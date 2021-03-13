@@ -58,7 +58,7 @@ class Header extends Component {
                         </div>
                     </div>
                     <NavLink className='logo' to='/'>
-                        <img className='logoimg' src={cb2logo} alt='cb2Logo' />
+                        <img className='logoimg' src={cb2logo} alt='DecolisticLogo' />
                     </NavLink>
                     <div classname='righticon' style={{ display: 'flex' }}>
                         <div>

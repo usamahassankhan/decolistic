@@ -7,7 +7,7 @@ import colorPicker from '../../../assets/ProductPageImages/colorPicker.png';
 const pageData = {
     nameOfProduct: 'KST SOFA',
     priceOfProduct: '393625',
-    companyName: 'CB2 exclusive',
+    companyName: 'Decolistic exclusive',
     review: '0.0',
     model: 'SKU:14544',
     color: [
@@ -135,7 +135,7 @@ export default ProductHeader;
 //   </div>
 //   <div className="topTitle">
 //     <div className="leftTitle" style={{}}>
-//       <p style={{ fontSize: 15, fontWeight: "120" }}>CB2 Exclusive</p>
+//       <p style={{ fontSize: 15, fontWeight: "120" }}>Decolistic Exclusive</p>
 //     </div>
 //     <div
 //       className="rightTitle"

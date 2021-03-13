@@ -116,8 +116,8 @@ const RequestQuote = () => {
                 <div className='rqrow1check'>
                     <input type='checkbox' id='vehicle3' name='vehicle3' value='Boat' />
                     <label for='vehicle3'>
-                        Yes, I would like to be notified of news and happenings at CB2 via this
-                        email address.
+                        Yes, I would like to be notified of news and happenings at Decolistic via
+                        this email address.
                     </label>
                 </div>
             </div>
