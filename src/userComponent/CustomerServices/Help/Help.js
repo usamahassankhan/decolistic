@@ -25,10 +25,10 @@ const Help = () => {
                             Yes. Through our partnership with Borderfree, we are pleased to provide
                             an enhanced international shopping experience for customers in over 90
                             countries, with support for many more coming soon. International
-                            shoppers now get the benefit of seeing CB2 product prices in their local
-                            currency, guaranteed order totals, cost-effective international shipping
-                            and much more. For a list of available shipping countries and shopping
-                            currencies, please visit
+                            shoppers now get the benefit of seeing Decolistic product prices in
+                            their local currency, guaranteed order totals, cost-effective
+                            international shipping and much more. For a list of available shipping
+                            countries and shopping currencies, please visit
                             https://www.cb2.com/customer-service/international-orders
                         </Card.Body>
                     </Accordion.Collapse>
@@ -119,7 +119,7 @@ const Help = () => {
                     <Accordion.Collapse eventKey='5'>
                         <Card.Body>
                             Yes, Borderfree supports international gift-giving, in that you can
-                            receive a guaranteed order total for a CB2 order that is shipping
+                            receive a guaranteed order total for a Decolistic order that is shipping
                             internationally, but pay in USD using a U.S. credit card. This also
                             works if you’re an American traveling or living abroad.
                         </Card.Body>

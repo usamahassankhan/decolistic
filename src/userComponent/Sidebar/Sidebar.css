@@ -76,7 +76,8 @@ li {
     width: 140%;
     margin-left: 0px;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 600;
+    letter-spacing: 2px;
     z-index: 2;
     position: relative;
     background-color: white;

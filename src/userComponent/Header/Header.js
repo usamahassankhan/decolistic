@@ -3,7 +3,8 @@ import { BsSearch, BsBoundingBoxCircles, BsReverseLayoutTextSidebarReverse } fro
 import './Header.css';
 import { FiShoppingCart } from 'react-icons/fi';
 // import cb2logo from './../../assets/cb2logo.png';
-import cb2logo from './../../assets/homePage/decolistic1.jpeg';
+// import cb2logo from './../../assets/homePage/decolistic-removebg-preview.png';
+import cb2logo from './../../assets/homePage/decolistic2.jpeg';
 import { AiOutlineMenu } from 'react-icons/ai';
 import './Header.css';
 

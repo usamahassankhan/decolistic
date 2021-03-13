@@ -20,7 +20,7 @@ function Radar() {
                         <img src={botimg1} alt />
                     </div>
                     <div className='radar__bot-only'>
-                        <p>CB2 IN YOUR SPACE: PHOTO BY @LOGI.BERRA</p>{' '}
+                        <p>Decolistic IN YOUR SPACE: PHOTO BY @LOGI.BERRA</p>{' '}
                     </div>
                     <div className='radar__bot-ref'>
                         <a href='#'>
@@ -33,7 +33,7 @@ function Radar() {
                         <img src={botimg2} alt />
                     </div>
                     <div className='radar__bot-only'>
-                        <p>CB2 IN YOUR SPACE: PHOTO BY @LOGI.BERRA</p>
+                        <p>Decolistic IN YOUR SPACE: PHOTO BY @LOGI.BERRA</p>
                     </div>
                     <div className='radar__bot-ref'>
                         <a href='#'>
@@ -46,7 +46,7 @@ function Radar() {
                         <img src={botimg3} alt />
                     </div>
                     <div className='radar__bot-only'>
-                        <p>CB2 IN YOUR SPACE: PHOTO BY @LOGI.BERRA</p>{' '}
+                        <p>Decolistic IN YOUR SPACE: PHOTO BY @LOGI.BERRA</p>{' '}
                     </div>
                     <div className='radar__bot-ref'>
                         <a href='#'>
@@ -59,7 +59,7 @@ function Radar() {
                         <img src={botimg4} alt />
                     </div>
                     <div className='radar__bot-only'>
-                        <p>CB2 IN YOUR SPACE: PHOTO BY @LOGI.BERRA</p>{' '}
+                        <p>Decolistic IN YOUR SPACE: PHOTO BY @LOGI.BERRA</p>{' '}
                     </div>
                     <div className='radar__bot-ref'>
                         <a href='#'>
