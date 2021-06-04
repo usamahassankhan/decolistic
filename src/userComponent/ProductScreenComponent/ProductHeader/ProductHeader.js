@@ -3,6 +3,7 @@ import './ProductHeader.css';
 import starRating from '../../../assets/starRating.png';
 import color1 from '../../../assets/ProductPageImages/choice_663zm0.jpg';
 import colorPicker from '../../../assets/ProductPageImages/colorPicker.png';
+import { Data } from './../../../userComponent/SubHeading/data';
 
 const pageData = {
     nameOfProduct: 'KST SOFA',
@@ -19,6 +20,7 @@ const pageData = {
 };
 
 function ProductHeader() {
+    console.log('ddasdasdasdas', Data);
     return (
         <div className='bodyBack'>
             <div style={{ padding: '0px' }}>

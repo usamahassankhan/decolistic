@@ -1,7 +1,18 @@
 import React from 'react';
 import Sidebarcustomerservices from '../Sidebarcustomerservices/Sidebarcustomerservices';
+import emailjs from 'emailjs-com';
 import './RequestQuote.css';
 const RequestQuote = () => {
+    const sendEmail=(e)=> {
+        e.preventDefault();
+    
+        emailjs.sendForm('service_t5ord38', 'template_copvszq', e.target, 'user_FYBIHvOwrLaSZY974lmaS')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log("sdad",error.text);
+          });
+      }
     return (
         // <>
         <div className='request'>
@@ -49,66 +60,67 @@ const RequestQuote = () => {
                     </div>
                 </div>
             </div>
-
+            <form onSubmit={(e)=>sendEmail(e)}>
             <div className='rqmain'>
+             
                 <div className='rqrow1'>
                     <label>Name*</label>
-                    <input type='text' />
+                    <input name="Name" type='text' />
                 </div>
                 <div className='rqrow1'>
                     <label>Last Name*</label>
-                    <input type='text' />
+                    <input name="lastname" type='text' />
                 </div>
             </div>
             <div className='rqmaintext'>
                 <div className='rqrow1text'>
                     <h5>Shipping Address</h5>
                     <label>ADDRESS1</label>
-                    <input type='text' />
+                    <input name="address1" type='text' />
                 </div>
             </div>
             <div className='rqmaintext'>
                 <div className='rqrow1text'>
                     <label>ADDRESS2</label>
-                    <input type='text' />
+                    <input name="address2" type='text' />
                 </div>
             </div>
             <div className='rqmaintext'>
                 <div className='rqrow1text'>
                     <label>ADDRESS3</label>
-                    <input type='text' />
+                    <input name="address3" type='text' />
                 </div>
             </div>
 
             <div className='rqmain'>
                 <div className='rqrow1'>
                     <label>CITY*</label>
-                    <input type='text' />
+                    <input nmae="city" type='text' />
                 </div>
                 <div className='rqrow1'>
                     <label>PROVIENCE</label>
-                    <input type='text' />
+                    <input name="provience" type='text' />
                 </div>
             </div>
             <div className='rqmain'>
                 <div className='rqrow1'>
                     <label>POSTAL CODE*</label>
-                    <input type='text' />
+                    <input name="postalcode" type='text' />
                 </div>
                 <div className='rqrow1'>
                     <label>COUNTRY</label>
-                    <input type='text' />
+                    <input name="country" type='text' />
                 </div>
             </div>
             <h5>CONTACT INFORMATION</h5>
             <div className='rqmain'>
                 <div className='rqrow1'>
                     <label>PHONE NUMBER</label>
-                    <input type='text' />
+                    <input name="phonenumber" type='text' />
                 </div>
                 <div className='rqrow1'>
                     <label>EMAIL</label>
-                    <input type='emaiL' />
+                    <input name="email" type='emaiL' />
                 </div>
             </div>
 
@@ -124,20 +136,20 @@ const RequestQuote = () => {
             <h4>ORDER ITEMS</h4>
             <div className='rqmain'>
                 <div className='rqrow11'>
-                    <label>SKU</label>
-                    <input type='text' />
+                    <label >SKU</label>
+                    <input name="sku" type='text' />
                 </div>
                 <div className='rqrow12'>
                     <label>DESCRIPTION</label>
-                    <input type='text' />
+                    <input name="description" type='text' />
                 </div>
                 <div className='rqrow13'>
                     <label>QUANTITY</label>
-                    <input type='text' />
+                    <input name="quantity" type='text' />
                 </div>
                 <div className='rqrow14'>
                     <label>EXTENDED PRICE</label>
-                    <input type='text' />
+                    <input name="extendedprice" type='text' />
                 </div>
             </div>
             <div className='rqmain'>
@@ -145,7 +157,7 @@ const RequestQuote = () => {
                     <p>ADD ANOTHER ITEM</p>
                     <div>
                         <label>Estimated Total</label>
-                        <input type='text' />
+                        <input name="estimatedtotal" type='text' />
                     </div>
                 </div>
             </div>
@@ -153,13 +165,14 @@ const RequestQuote = () => {
                 <div className='row1cde'>
                     <label>COMMENT</label>
                     <p>2000 character limit</p>
-                    <textarea id='w3review' name='w3review' rows='4' cols='50'></textarea>
+                    <textarea name="commented" id='w3review'  rows='4' cols='50'></textarea>
                 </div>
             </div>
 
             <div className='rqmain'>
-                <button className='rowbutton'>SUBMIT REQUEST</button>
+                <button className='rowbutton' >SUBMIT REQUEST</button>
             </div>
+            </form>
         </div>
         // </>
     );

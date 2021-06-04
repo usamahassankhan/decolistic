@@ -55,15 +55,15 @@
         /* text-align: center; */
     }
     .footer-container {
-        width: 110%;
+        width: 115%;
     }
     .lastrow {
         display: flex;
         flex-direction: column;
     }
 }
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 380px) {
     .footer-container {
-        width: 120%;
+        width: 107%;
     }
 }

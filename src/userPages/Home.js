@@ -3,6 +3,7 @@ import './Home.css';
 import img1 from '../assets/im2.jfif';
 import im1 from '../assets/im1.jfif';
 import celeb from '../assets/102220_home_holiday.jpg';
+import Jello from 'react-reveal/Jello';
 // import im2 from "../Assets/im2.jfif";
 // import img2 from "../Assets/102320_home_trees.jpg";
 // import img3 from "../Assets/111420_home_clearance.jpg";
@@ -14,17 +15,29 @@ import imageback from '../assets/imageback.jfif';
 import { Link } from 'react-router-dom';
 import Radar from '../userComponent/Radar/Radar';
 import HomeMainImage from './HomeMainImage/HomeMainImage';
+import Fade from 'react-reveal/Fade';
+import Flip from 'react-reveal/Flip';
+import Reveal from 'react-reveal/Reveal';
+import Bounce from 'react-reveal/Bounce';
+import Zoom from 'react-reveal/Zoom';
+import Spin from 'react-reveal/Spin';
+import Pulse from 'react-reveal/Pulse';
+import d1 from './../images/Decolistic.png';
+import d2 from './../images/d2.png';
+import d3 from './../images/d3.png';
+import d4 from './../images/d4.png';
+import { Data } from './../../src/userComponent/SubHeading/data';
 function Home() {
     return (
         <div className='wrapperHome'>
             <div className='home' style={{ paddingLeft: '28px' }}>
                 <div className='top' style={{ paddingLeft: '0px' }}>
-                    <div className='innerTopText'>
-                        <a style={{ color: 'black', fontWeight: '500' }}>SHOP SAFELY </a>
+                    <div className='innerTopText aa1'>
+                        <a style={{ color: ' gray', fontWeight: '800' }}>SHOP SAFELY </a>
                     </div>
                     <div className='innerTopText'>
                         <a href='#' className='aTagRightBorder'>
-                            BUY ONLINE, PICKUP IN-STORE OR CURBSIDE
+                            BUY ONLINE
                         </a>
                     </div>
                     <div className='innerTopText'>
@@ -34,24 +47,30 @@ function Home() {
                 <div className='mainback'>
                     <div className='back'>
                         {/* <HomeMainImage /> */}
-                        <img src={img1} />
+                        {/* <Spin> */}
+                        <img src={Data[1].im0} />
+                        {/* </Spin> */}
                     </div>
 
+                    {/* </Bounce> */}
+
                     <div className='rightContent'>
-                        <div className='rightInnerBox'>
-                            <img className='image1' src={im1} alt='image1' />
-                            <p>A NEW COLLECTION THAT WILL SET YOUR HEART FLUTTER</p>
-                            <Link>
-                                <u>SHOP NOW</u>
-                            </Link>
-                        </div>
-                        <div className='rightInnerBox'>
-                            <img className='image1' src={im1} alt='image2' />
-                            <p>A NEW COLLECTION THAT WILL SET YOUR HEART FLUTTER</p>
-                            <Link>
-                                <u>SHOP NOW</u>
-                            </Link>
-                        </div>
+                        <Fade right cascade>
+                            <div className='rightInnerBox'>
+                                <img className='image1' src={Data[18].im1} alt='image1' />
+                                <p>A NEW COLLECTION THAT WILL SET YOUR HEART FLUTTER</p>
+                                <Link to='/new/viewall'>
+                                    <u>SHOP NOW</u>
+                                </Link>
+                            </div>
+                            <div className='rightInnerBox'>
+                                <img className='image1' src={Data[18].im2} alt='image2' />
+                                <p>A NEW COLLECTION THAT WILL SET YOUR HEART FLUTTER</p>
+                                <Link to='/new/viewall'>
+                                    <u>SHOP NOW</u>
+                                </Link>
+                            </div>
+                        </Fade>
                     </div>
                     {/* <div className="backmaincolumn">
             <div className="backcolumn2row1">
@@ -97,19 +116,31 @@ function Home() {
           </div>
         </div>
       </div> */}
-                <div className='chic'>
-                    <div className='chic-text'>Chic Retreat</div>
-                    <div className='ref-text'>
-                        <a href='#'>Shop Furniture</a>
+                <Fade top cascade>
+                    <Zoom cascade>
+                        <div className='chic'>
+                            <div className='chic-text'>Chic Retreat</div>
+                            <div className='ref-text'>
+                                <a href='/new/viewall'>Shop Furniture</a>
+                            </div>
+                        </div>
+                    </Zoom>
+                </Fade>
+                <Pulse>
+                    {/* <div className='gift'>
+                        <div className='gift-text'>Gift Guide</div>
+                        <div className='gift-ref'>
+                            <a href='#'>Shop Gifts</a>
+                        </div>
+                    </div> */}
+                    <div className='celeb1'>
+                        <img src={Data[19].im1} />
+                        {/* <p className='celeb-text'>Let's Decorate</p> */}
+                        <p className='celeb-ref'>{/* <a href='#'>Shop Holiday</a> */}</p>
                     </div>
-                </div>
-
-                <div className='gift'>
-                    <div className='gift-text'>Gift Guide</div>
-                    <div className='gift-ref'>
-                        <a href='#'>Shop Gifts</a>
-                    </div>
-                </div>
+                </Pulse>
+                {/* <Fade top cascade> */}
+                {/* <Flip cascade> */}
                 <div className='imagebackd'>
                     <img className='imageback' src={imageback} />
                     <div className='imagebackcontent'>
@@ -124,15 +155,30 @@ function Home() {
                         </p>
                     </div>
                 </div>
-
+                {/* </Flip> */}
+                {/* </Fade> */}
+                {/* <Flip bottom duration={2000}> */}
                 <div className='celeb'>
-                    <img src={celeb} />
-                    <p className='celeb-text'>Let's Decorate</p>
+                    <img src={Data[18].im3} />
+                    {/* <p className='celeb-text'>Let's Decorate</p> */}
                     <p className='celeb-ref'>
-                        <a href='#'>Shop Holiday</a>
+                        <a
+                            href='
+                        /new/viewall'
+                        >
+                            Shop Holiday
+                        </a>
                     </p>
                 </div>
+                {/* </Flip> */}
+
                 <Radar />
+                <div className='branding'>
+                    <img src={d1} />
+                    <img src={d2} />
+                    <img src={d3} />
+                    <img src={d4} />
+                </div>
             </div>
         </div>
     );

@@ -1,8 +1,10 @@
 import React from "react";
+// import Fade from 'react-reveal/Fade';
 import "./style.css";
 function HomeMainImage() {
   return (
     <div>
+
       <div className="deal">
         <div className="dealss">4 Deals. 4 Days.</div>
         <div className="prep">Holiday</div>

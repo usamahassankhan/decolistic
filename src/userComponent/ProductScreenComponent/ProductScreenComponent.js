@@ -7,7 +7,7 @@ import color2 from '../../assets/ProductPageImages/choice_1221zm0.jpg';
 import color3 from '../../assets/ProductPageImages/choice_1624zm.jpg';
 import color4 from '../../assets/ProductPageImages/choice_1898zm0.jpg';
 import color5 from '../../assets/ProductPageImages/choice_2005zm0.jpg';
-
+import { Data } from './../../../src/userComponent/SubHeading/data';
 import colorPicker from '../../assets/ProductPageImages/colorPicker.png';
 import productImage from '../../assets/ProductPageImages/bozzi-mongolian-sheepskin-chair.jpg';
 import productImage1 from '../../assets/ProductPageImages/BozziMnglnShpsknChair3QBSSS21.jpg';
@@ -17,6 +17,11 @@ import productImage4 from '../../assets/ProductPageImages/BozziMnglnShpsknChairA
 import productImage5 from '../../assets/ProductPageImages/BozziMnglnShpsknChairSDSSS21.jpg';
 import productImage6 from '../../assets/ProductPageImages/mainfurnitureImage.jpeg';
 import { useHistory } from 'react-router-dom';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+import Slider from 'react-slick';
+import { Fingerprint } from '@material-ui/icons';
 const pageData = {
     nameOfProduct: 'KST SOFA',
     priceOfProduct: '393625',
@@ -55,32 +60,38 @@ const pageData = {
     }
 };
 
-function ProductHeader() {
+function ProductHeader(props) {
+    const [smimg, setsmimg] = React.useState();
+    console.log(props.match.params.id, 'dsadsaas');
     let history = useHistory();
+    console.log(Data, 'add');
+    const ans = Data.filter((a) => a.id == props.match.params.id);
+    console.log('fine', ans);
+    console.log('fines', ans[0]?.imageSrc);
     return (
         <div style={{ marginTop: '4%' }} className='product__wrapper'>
             <div className='bodyBack'>
                 <div style={{ padding: '0px' }}>
-                    <div className='product_routes'>
+                    {/* <div className='product_routes'>
                         <pre>
                             FURNITURE / LIVING ROOM FURNITURE / ACCENT CHAIRS / BOZZI MONGOLIAN
                             SHEEPSKIN CHAIR{' '}
                         </pre>
-                    </div>
+                    </div> */}
                     {/* first line */}
                     <div className='productTitle'>
                         <div
                             className='leftProductTitle product__boldText'
                             style={{ marginBottom: '0px' }}
                         >
-                            <p style={{ padding: 0, margin: 0 }}>{pageData.nameOfProduct}</p>{' '}
+                            <p style={{ padding: 0, margin: 0 }}>{ans[0]?.name}</p>{' '}
                         </div>
-                        <div className='rightProductTitle product__boldText'>
+                        {/* <div className='rightProductTitle product__boldText'>
                             {' '}
                             <p
                                 style={{ padding: 0, margin: 0 }}
                             >{`PKR ${pageData.priceOfProduct}`}</p>{' '}
-                        </div>
+                        </div> */}
                     </div>
                     {/* second line */}
                     <div className='productTitle'>
@@ -89,7 +100,7 @@ function ProductHeader() {
                                 {pageData.companyName}
                             </p>{' '}
                         </div>
-                        <div
+                        {/* <div
                             className='productTitle'
                             style={{ paddingTop: '0px', alignItems: 'center' }}
                         >
@@ -107,7 +118,7 @@ function ProductHeader() {
                             <div className='product__smallText'>
                                 <p style={{ padding: 0, margin: 0 }}> {pageData.model}</p>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className='description'>
                         <div className='product__smallTitle'>
@@ -155,7 +166,7 @@ function ProductHeader() {
                                 alt={pageData.color[0].name}
                             />
                         </div>
-                        <div className='seeColorBorder productTitle '>
+                        {/* <div className='seeColorBorder productTitle '>
                             <img
                                 style={{ padding: '0px' }}
                                 src={colorPicker}
@@ -166,12 +177,14 @@ function ProductHeader() {
                             <div style={{ padding: '0px' }} className='textController'>
                                 SEE ALL COLORS
                             </div>
-                        </div>
+                        </div> */}
                     </div>
+
                     <div className='rightButtonContainer productTitle'>
                         <div className='product__button '>
                             <p
-                                onClick={() => history.push('./Customer')}
+                                // onClick={() => history.push('./Customer')}
+                                onClick={() => history.push(`/Customer/oversized/${ans[0].id}`)}
                                 style={{
                                     color: 'white',
                                     alignSelf: 'center',
@@ -189,6 +202,7 @@ function ProductHeader() {
                         <img
                             style={{ paddingLeft: '0px' }}
                             src={pageData.color[0].image}
+                            // src={ans.im?ageSrc}
                             width='30px'
                             height='15px'
                             alt='colorSelected'
@@ -204,20 +218,54 @@ function ProductHeader() {
             </div>
             <div>
                 <div className='mainImageSlider'>
-                    <img src={productImage} alt='productImage' width='100%' />
+                    {/* <img src={productImage} alt='productImage' width='100%' /> */}
+                    {smimg ? (
+                        <img src={smimg} alt='productImage' width='100%' />
+                    ) : (
+                        <img src={ans[0]?.im0} alt='productImage' width='100%' />
+                    )}
                 </div>
                 <div className='miniImageSetter' style={{ padding: 0 }}>
                     <div className='miniImages' style={{ padding: 0 }}>
-                        <img src={productImage} alt='miniImages' width='60px' height='60px' />
-                        <img src={productImage1} alt='miniImages' width='60px' height='60px' />
-                        <img src={productImage2} alt='miniImages' width='60px' height='60px' />
-                        <img src={productImage3} alt='miniImages' width='60px' height='60px' />
-                        <img src={productImage4} alt='miniImages' width='60px' height='60px' />
-                        <img src={productImage5} alt='miniImages' width='60px' height='60px' />
+                        <img
+                            src={ans[0]?.im1}
+                            onClick={() => setsmimg(ans[0]?.im1)}
+                            alt='miniImages'
+                            width='60px'
+                            height='60px'
+                        />
+                        <img
+                            src={ans[0]?.im2}
+                            onClick={() => setsmimg(ans[0]?.im2)}
+                            alt='miniImages'
+                            width='60px'
+                            height='60px'
+                        />
+                        <img
+                            src={ans[0]?.im3}
+                            onClick={() => setsmimg(ans[0]?.im3)}
+                            alt='miniImages'
+                            width='60px'
+                            height='60px'
+                        />
+                        <img
+                            src={ans[0]?.im4}
+                            onClick={() => setsmimg(ans[0]?.im4)}
+                            alt='miniImages'
+                            width='60px'
+                            height='60px'
+                        />
+                        <img
+                            src={ans[0]?.im5}
+                            onClick={() => setsmimg(ans[0]?.im5)}
+                            alt='miniImages'
+                            width='60px'
+                            height='60px'
+                        />
                     </div>
                 </div>
 
-                <div className='product__centerBody' style={{ padding: 0, marginTop: '10px' }}>
+                {/* <div className='product__centerBody' style={{ padding: 0, marginTop: '10px' }}>
                     <div style={{ padding: 0 }} className='product__centerTitle'>
                         <p>CREATE YOUR CUSTOM DESIGN</p>{' '}
                     </div>
@@ -229,7 +277,7 @@ function ProductHeader() {
                                 width='100%'
                                 height='100%'
                                 style={{ objectFit: 'fill' }}
-                            />
+                            />  
                         </div>
                         <div
                             className='rightBody'
@@ -372,7 +420,7 @@ function ProductHeader() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div
                 className='borderTopBottom'
@@ -403,28 +451,17 @@ function ProductHeader() {
             </div>
             <div>
                 <div style={{ textAlign: 'start' }} className='product__smallerMiddleText'>
-                    <p>
-                        Sand velvet sofa designed by Ross Cassidy gives a contemporary update to a
-                        traditional '60s-inspired rolled-arm design, with elegance reminiscent of an
-                        old-world English film set. Monochromatic welts along the edges finish
-                        things off, while down-feather cushions keep it cozy. Outfitted in a
-                        FSC-certified wood frame. Decolistic exclusive.
-                    </p>
+                    <p>{ans[0]?.description}</p>
                 </div>
                 <div style={{ display: 'flex' }}>
                     <ul className='product__tableText'>
-                        <li>Designed by Ross Cassidy</li>
-                        <li>Designed by Ross Cassidy</li>
-                        <li>Designed by Ross Cassidy</li>
-                    </ul>
-                    <ul className='product__tableText'>
-                        <li>Designed by Ross Cassidy</li>
-                        <li>Designed by Ross Cassidy</li>
-                        <li>Designed by Ross Cassidy</li>
+                        {ans[0]?.detail?.map((l) => (
+                            <li>{l}</li>
+                        ))}
                     </ul>
                 </div>
             </div>
-            <div
+            {/* <div
                 style={{
                     display: 'flex',
                     justifyContent: 'flex-start',
@@ -437,29 +474,29 @@ function ProductHeader() {
                 <div className='borderLeft'>
                     <u>EMAIL</u>
                 </div>
-            </div>
+            </div> */}
             <div style={{ marginTop: '80px' }}>
                 <div className='product__centerDimensionTitle'>
                     <p>DIMENSIONS</p>
                 </div>
                 <div>
                     <h3 style={{ fontWeight: '300', fontSize: '16px', color: ' #4a4947' }}>
-                        BOZZI MONGOLIAN SHEEPSKIN CHAIR
+                        {ans[0]?.name}
                     </h3>
                 </div>
             </div>
             <div className='dimensionTable'>
                 <div className='dimensionTable_heading'>
                     <h3>Overall Dimensions</h3>
-                    <p>Width:" "89.26"</p>
-                    <p>Depth: "89.26"</p>
-                    <p>Height: "89.26"</p>
+                    <p>Width:{ans[0]?.owidth}</p>
+                    <p>Depth: {ans[0]?.odepth}</p>
+                    <p>Height: {ans[0]?.oheight}</p>
                 </div>
                 <div className='dimensionTable_heading'>
-                    <h3>Seat Dimensions</h3>
-                    <p>Width: "89.26"</p>
-                    <p>Depth: "89.26"</p>
-                    <p>Height: "89.26"</p>
+                    <h3>Seats Dimensions</h3>
+                    <p>Width:{ans[0]?.swidth}</p>
+                    <p>Depth: {ans[0]?.sdepth}</p>
+                    <p>Height: {ans[0]?.sheight}</p>
                 </div>
             </div>
             <div

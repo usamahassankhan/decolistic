@@ -16,6 +16,7 @@ import { NavLink } from 'react-router-dom';
 import { Constants } from '../../Constants';
 import Radar from '../Radar/Radar';
 import { useDispatch, useSelector } from 'react-redux';
+import { Data } from './../../userComponent/SubHeading/data';
 const newPage = [
     {
         id: 1,
@@ -92,15 +93,18 @@ function MainHeading(props) {
             <h2 className='mainHeading__heading'>{props.pageToLoad}</h2>
 
             <div className='mainHeading__CardContainer' style={{ padding: 0 }}>
-                {subHeading.map((subH) => {
-                    OnImageLoad(subH.subImage);
+                {/* {subHeading.map((subH) => { */}
+                {Data.map((im) => {
+                    // OnImageLoad(subH.subImage);
                     return (
                         <NavLink
-                            to={`/${subH.mainHeadingName}/${subH.subHeadingName}`}
+                            // to={`/${'subH.mainHeadingName'}/${'subH.subHeadingName'}`}
+                            to='/new/viewall'
                             className='mainHeading__navClass'
                         >
                             <div className='mainHeading__first'>
                                 <div className='mainHeading__first-img'>
+                                    <img src={im.im0} />
                                     {/* <img
                                         src={(() => {
                                             const image = pageImages.filter(
@@ -113,7 +117,7 @@ function MainHeading(props) {
                                     /> */}
                                 </div>
                                 <div className='mainHeading__first-only'>
-                                    <p>{subH.subHeadingName}</p>
+                                    {/* <p>{subH.subHeadingName}</p> */}
                                 </div>
                             </div>
                         </NavLink>

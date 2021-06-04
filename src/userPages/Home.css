@@ -6,6 +6,9 @@
     width: 100%;
     /* width: 340px; */
 }
+.aa1 {
+    border-left: 3px solid gray;
+}
 .home {
     margin: 0 auto;
     width: 100%;
@@ -35,6 +38,7 @@
 }
 .back > img {
     width: 100%;
+    height: 980px;
 }
 
 .top {
@@ -66,12 +70,14 @@
 }
 .rightInnerBox > img {
     width: 100%;
+    height: 400px;
     overflow: hidden;
 }
 .rightContent {
     flex: 1;
     padding: 10px;
     padding-left: 20px;
+    margin-top: 30px;
     text-align: start;
     display: flex;
     flex-direction: column;
@@ -83,6 +89,7 @@
     justify-content: center;
     align-items: center;
     padding: 0;
+    border-right: 3px solid gray;
 }
 .innerTopText > a {
     font-family: Verdana;
@@ -199,7 +206,7 @@
 }
 .imagebackd {
     margin-top: 20px;
-    width: 100%;
+    width: 98%;
     /* margin-left: 40px; */
     position: relative;
 }
@@ -252,7 +259,8 @@
 }
 .chic {
     /* min-height: 800px; */
-    max-width: 1640px;
+    max-width: 1620px;
+    margin-right: 10px;
     height: 980px;
     background-image: url('../assets/110620_home_chicretreat.jpg');
     background-size: cover;
@@ -308,6 +316,19 @@
     flex-wrap: wrap;
     margin-top: 80px;
 }
+.celeb1 {
+    width: 98%;
+    /* height: 985px; */
+    /* background-image: url('../assets/102220_home_holiday.jpg'); */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 50px;
+}
+.celeb1 > img {
+    width: 100%;
+    height: 800px;
+}
 .celeb > img {
     width: 100%;
 }
@@ -361,6 +382,18 @@
     font-size: 20px;
     color: white;
 }
+.branding {
+    display: flex;
+    justify-content: space-evenly;
+    /* margin: 80px 0px; */
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+    margin-top: 60px;
+}
+.branding > img {
+    width: 150px;
+    margin-bottom: 30px;
+}
 @media screen and (max-width: 1000px) {
     .mainback {
         display: flex;
@@ -371,6 +404,9 @@
     }
     .celeb-text {
         font-size: 30px;
+    }
+    .celeb1 > img {
+        width: 100%;
     }
 }
 @media screen and (max-width: 800px) {
@@ -424,6 +460,9 @@
     .gift-text {
         margin-right: 335px;
     }
+    .celeb1 > img {
+        width: 100%;
+    }
 }
 @media screen and (max-width: 780px) {
     .mainback {
@@ -440,6 +479,9 @@
     }
     .back > img {
         width: 600px !important;
+    }
+    .celeb1 > img {
+        width: 100%;
     }
 }
 
@@ -491,6 +533,9 @@
         color: gray;
         padding: 0px 20px 0px 20px;
     }
+    .celeb1 > img {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 500px) and (min-width: 300px) {
@@ -501,7 +546,8 @@
     .chic {
         margin-left: 0px;
         height: 230px;
-        width: 376px;
+        width: 342px;
+        margin-top: 0px;
     }
     .chic-text {
         width: 300px;
@@ -510,7 +556,7 @@
         width: 300px;
     }
     .gift {
-        width: 366px;
+        width: 342px;
     }
     .gift-text {
         display: flex;
@@ -529,21 +575,33 @@
     }
     .imageback {
         height: 400px;
-        width: 366px;
+        width: 342px;
+    }
+    .imagebackd {
+        margin-top: 0px;
     }
     .rightInnerBox > img {
-        width: 376px;
+        width: 342px;
         margin-left: -20px;
     }
     p {
         max-width: 290px;
     }
+    .rightInnerBox > p {
+        margin-top: 20px;
+    }
+    .rightInnerBox {
+        margin-bottom: 20px;
+    }
     .back {
-        width: 380px !important;
+        width: 342px !important;
+        padding: 0px;
+        margin: 0px;
         /* height: 1300px !important; */
     }
     .back > img {
-        width: 359px !important;
+        width: 342px !important;
+        height: 400px;
     }
     .celeb-text {
         width: 300px;
@@ -584,13 +642,38 @@
         padding: 0px 20px 0px 20px;
     }
     .celeb {
-        width: 376px;
+        width: 342px;
     }
     .radar__bot-firsts {
-        width: 376px !important;
+        width: 342px !important;
+        margin-top: 36px;
     }
     .radar__bottom {
         padding-bottom: 100px;
+    }
+    .celeb1 > img {
+        width: 108%;
+        height: 300px;
+    }
+    .subHeadingCard__second-img img {
+        width: 322px !important;
+        height: 250px !important;
+    }
+    .celeb {
+        padding-left: 0px;
+        padding-right: 5px;
+        margin: 0px 0px;
+    }
+    .celeb > img {
+        height: 300px;
+        width: 339px;
+    }
+    .branding {
+        margin-top: -33px;
+    }
+    .top {
+        padding-left: 40px;
+        margin-left: 12px;
     }
 }
 

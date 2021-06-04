@@ -55,12 +55,14 @@
     .oversized {
         width: 300px;
         margin-bottom: 100px;
+        margin-left: -210px;
     }
 }
 @media screen and (max-width: 400px) {
     .oversized {
         width: 300px;
         margin-bottom: 100px;
+        margin-left: -190px;
     }
     .subweb2 {
         width: 300px !important;
@@ -77,5 +79,22 @@
     .row1cd,
     .row1label1 {
         width: 280px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .row1c {
+        display: flex;
+        width: 305px;
+        margin-left: 9px;
+        margin-top: 0px;
+        margin-bottom: 5px;
+        flex-direction: column;
+    }
+    .row1cd {
+        width: 311px;
+        margin-left: 10px;
+    }
+    .rowbutton {
+        margin-left: 29px;
     }
 }

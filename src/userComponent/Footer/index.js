@@ -52,21 +52,25 @@ const index = () => {
 
                 <div className='column5'>
                     <div className='heading'>OUR BRANDS</div>
-                    <div>CREATE&BARREL</div>
+                    {/* <div>CREATE&BARREL</div>
                     <div>CREATE&KIDS</div>
                     <div>HUDSON|GRACE</div>
-                    <div>SHIP TO</div>
+                    <div>SHIP TO</div> */}
+                    <div>Decolistic</div>
+                    <div>Icon Group</div>
+                    <div>Craft</div>
+                    <div> Plantos</div>
                 </div>
             </div>
             <div className='lastrow'>
                 <p>
                     <p>©2021 Decolistic TERMS OF USE PRIVACY POLICY SITE INDEX AD CHOICES</p>
                 </p>
-                <span> |</span>
+                {/* <span> |</span>
                 <p className='paralast'>
                     If you are using a screen reader and are having problems using this website,
                     please call 630.388.4555 for assistance.
-                </p>
+                </p> */}
             </div>
         </div>
     );

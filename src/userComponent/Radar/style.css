@@ -12,8 +12,8 @@
     padding: 0;
     display: flex;
     flex-direction: row;
-    font-weight: 300;
-    font-size: medium;
+    font-weight: 800;
+    font-size: large;
     margin: 0px;
     font-family: Verdana;
     /* text-decoration: wavy; */
@@ -105,5 +105,9 @@
         display: flex;
         flex-direction: column;
         width: 350px !important;
+    }
+    .radar__botImageContainer > img {
+        width: 99%;
+        height: 300px;
     }
 }

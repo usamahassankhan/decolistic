@@ -4,7 +4,7 @@
   padding-right: 8px; */
 }
 .wrapperHeader {
-    width: 93%;
+    width: 100%;
 }
 .logo > img {
     width: 200px;
@@ -18,9 +18,14 @@
     padding-bottom: 20px;
 
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: row-reverse;
+    align-items: flex-end;
     border-bottom: 1px solid gray;
+    justify-content: space-between;
+}
+.mainsearchdiv {
+    display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
 }
 

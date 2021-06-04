@@ -186,6 +186,7 @@
     font-size: 14px;
     color: #4a4947;
     font-weight: 350;
+    list-style: disc;
 }
 .product__centerDimensionTitle > p {
     font-size: 25px;

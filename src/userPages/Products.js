@@ -5,8 +5,9 @@ import botimg1 from '../assets/102220_home_bt_1.jpg';
 import botimg2 from '../assets/110620_home_bt_2.jpg';
 import botimg3 from '../assets/111420_home_bt_3.jpg';
 import botimg4 from '../assets/031020_home_bt_3.jpg';
-
-function Products() {
+import { Data } from './../../src/userComponent/SubHeading/data';
+function Products(props) {
+    console.log(props, 'das');
     return (
         <div className='products'>
             <div className='heading'>FURNITURE</div>

@@ -47,6 +47,7 @@ function App() {
         dispatch(getOnlySubHeading);
         dispatch(getSubSubHeading);
     });
+    useEffect(() => handleResize(), []);
     const mainHeadings = useSelector((state) => state.mainHeading);
     const subHeadings = useSelector((state) => state.subHeadingOnly);
     const subSubHeadings = useSelector((state) => state.subSubHeadings);
@@ -69,6 +70,9 @@ function App() {
                     >
                         <div className='slide'>
                             <Sidebar sidebar={Tsidebar} />
+                            {/* <Sidebar
+                                render={(props) => <Sidebar {...props} sidebar={Tsidebar} />}
+                            /> */}
                         </div>
                         <div className='slide11'>
                             <Sidebarcustomerservices sidebar={Tsidebar} />
@@ -87,13 +91,13 @@ function App() {
                                     <CustomerServices {...props} sidebar={Tsidebar} />
                                 )}
                             />
-                            <Route path='/product' exact component={ProductScreenComponent} />
+                            <Route path='/product/:id' exact component={ProductScreenComponent} />
                             <Route path='/customer' exact component={CustomerServices} />
                             {/* <Route path="/customer/id:" exact component={Overviewcustomer} /> */}
                             <Route path='/customer/request' exact component={RequestQuote} />
                             <Route path='/customer/help' exact component={Help} />
                             <Route path='/customer/return' exact component={Returnexchange} />
-                            <Route path='/customer/oversized' exact component={Oversized} />
+                            <Route path='/customer/oversized/:id' exact component={Oversized} />
 
                             {
                                 //main heading routes
@@ -152,6 +156,47 @@ function App() {
                                 exact
                                 path={Constants.newViewAll}
                                 render={() => <SubHeading pageToLoad={Constants.newViewAll} />}
+                            />
+                            <Route
+                                exact
+                                path={Constants.newFurniture}
+                                render={() => <SubHeading pageToLoad={Constants.newFurniture} />}
+                            />
+                            <Route
+                                exact
+                                path={Constants.furniture}
+                                render={() => <SubHeading pageToLoad={Constants.furniture} />}
+                            />
+                            <Route
+                                exact
+                                path={Constants.furnitureLivingRoom}
+                                render={() => (
+                                    <SubHeading pageToLoad={Constants.furnitureLivingRoom} />
+                                )}
+                            />
+                            <Route
+                                exact
+                                path={Constants.furnitureDining}
+                                render={() => <SubHeading pageToLoad={Constants.furnitureDining} />}
+                            />
+                            <Route
+                                exact
+                                path={Constants.furnitureBedroom}
+                                render={() => (
+                                    <SubHeading pageToLoad={Constants.furnitureBedroom} />
+                                )}
+                            />
+                            <Route
+                                exact
+                                path={Constants.furnitureOffice}
+                                render={() => <SubHeading pageToLoad={Constants.furnitureOffice} />}
+                            />
+                            <Route
+                                exact
+                                path={Constants.furnitureBestSeller}
+                                render={() => (
+                                    <SubHeading pageToLoad={Constants.furnitureBestSeller} />
+                                )}
                             />
                             {/* <Route exact path="/" render={() => <CustomerServices />} /> */}
                         </Switch>

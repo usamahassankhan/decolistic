@@ -94,4 +94,11 @@
         padding-left: 100px !important;
         /* margin: auto; */
     }
+    .mainHeading__heading {
+        margin-top: 20px;
+    }
+    .mainHeading__first-img > img {
+        width: 123%;
+        /* height: 400px; */
+    }
 }
